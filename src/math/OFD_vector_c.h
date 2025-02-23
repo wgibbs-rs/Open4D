@@ -19,17 +19,17 @@ typedef struct { double xy, xz, xw, yz, yw, zw; } OFD_Vector6;
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-static inline OFD_Vector2 OFD_Vector2_Magnitude(OFD_Vector2 a);
+static inline double OFD_Vector2_Magnitude(OFD_Vector2 a);
 /** @brief Adds two 2D vectors together.*/
 static inline OFD_Vector2 OFD_Vector2_Add(OFD_Vector2 a, OFD_Vector2 b);
 /** @brief Subtracts vector "b" from vector "a" */
 static inline OFD_Vector2 OFD_Vector2_Subtract(OFD_Vector2 a, OFD_Vector2 b);
 /** @brief Calculates the dot product of two 2D vectors. */
-static inline OFD_Vector2 OFD_Vector2_Dot(OFD_Vector2 a, OFD_Vector2 b);
+static inline double OFD_Vector2_Dot(OFD_Vector2 a, OFD_Vector2 b);
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-static inline OFD_Vector3 OFD_Vector3_Magnitude(OFD_Vector3 a);
+static inline double OFD_Vector3_Magnitude(OFD_Vector3 a);
 /** @brief Finds the cross product of two 3D vectors.
  * 
  *  The "cross product" is a 3D vector derived from two others. It
@@ -43,11 +43,11 @@ static inline OFD_Vector3 OFD_Vector3_Add(OFD_Vector3 a, OFD_Vector3 b);
 /** @brief Subtracts vector "b" from vector "a" */
 static inline OFD_Vector3 OFD_Vector3_Subtract(OFD_Vector3 a, OFD_Vector3 b);
 /** @brief Calculates the dot product of two 3D vectors. */
-static inline OFD_Vector3 OFD_Vector3_Dot(OFD_Vector3 a, OFD_Vector3 b);
+static inline double OFD_Vector3_Dot(OFD_Vector3 a, OFD_Vector3 b);
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-static inline OFD_Vector4 OFD_Vector4_Magnitude(OFD_Vector4 a);
+static inline double OFD_Vector4_Magnitude(OFD_Vector4 a);
 /** @brief Finds the exterior product, or wedge product of two 4D vectors.
  * 
  * The "exterior product," also known as the "wedge product" is a 6D vector 
@@ -61,17 +61,11 @@ static inline OFD_Vector4 OFD_Vector4_Add(OFD_Vector4 a, OFD_Vector4 b);
 /** @brief Subtracts vector "b" from vector "a" */
 static inline OFD_Vector4 OFD_Vector4_Subtract(OFD_Vector4 a, OFD_Vector4 b);
 /** @brief Calculates the dot product of two 4D vectors. */
-static inline OFD_Vector4 OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b);
+static inline double OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b);
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-static inline OFD_Vector6 OFD_Vector6_Magnitude(OFD_Vector6 a);
-/** @brief Adds two 6D vectors together. */
-static inline OFD_Vector6 OFD_Vector6_Add(OFD_Vector6 a, OFD_Vector6 b);
-/** @brief Subtracts vector "b" from vector "a" */
-static inline OFD_Vector6 OFD_Vector6_Subtract(OFD_Vector6 a, OFD_Vector6 b);
-/** @brief Finds the dot product of two 6D vectors. */
-static inline OFD_Vector6 OFD_Vector6_Dot(OFD_Vector6 a, OFD_Vector6 b);
+static inline double OFD_Vector6_Magnitude(OFD_Vector6 a);
 
 
 
