@@ -103,3 +103,9 @@ static inline double OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b) {
 static inline double OFD_Vector6_Magnitude(OFD_Vector6 a) {
     return sqrt(a.xy * a.xy + a.xz * a.xz + a.xw * a.xw + a.yz * a.yz + a.yw * a.yw + a.zw * a.zw);
 }
+
+
+
+static inline OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r) {
+    
+}

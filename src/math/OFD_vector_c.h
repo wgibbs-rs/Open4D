@@ -68,5 +68,8 @@ static inline double OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b);
 static inline double OFD_Vector6_Magnitude(OFD_Vector6 a);
 
 
+/** @brief Rotates a 4D vector around a central point. */
+static inline OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r);
+
 
 #endif // OFD_vector_c_h_
