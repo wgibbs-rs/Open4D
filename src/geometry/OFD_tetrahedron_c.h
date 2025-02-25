@@ -23,7 +23,6 @@
 #define OFD_tetrahedron_c_h_
 
 #include "../util/OFD_vector_c.h"
-#include "OFD_triangle_c.h"
 
 /** @brief Defines a tetrahedron made of four 4D points. Each point is stored as an OFD_Vector4
  * 
@@ -37,6 +36,14 @@ typedef struct {
 } OFD_Tetrahedron;
 
 
+
+/** @brief Defines a triangle in 3D space. */
+typedef struct {
+    OFD_Vector3 a, b, c;
+} OFD_Triangle3D;
+
+
+
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
  * 
  * Given the simplicity of tetrahedrons, we can easily slice them across the fourth dimension.
@@ -45,7 +52,17 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-static inline OFD_Triangle3D* OFD_SliceTetrahedron(OFD_Tetrahedron g);
+static inline OFD_Triangle3D* OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+
+
+/** @brief Returns a triangle's vertices' X positions. */
+static inline double* OFD_TriangleToX(OFD_Triangle3D tri);
+/** @brief Returns a triangle's vertices' Y positions. */
+static inline double* OFD_TriangleToY(OFD_Triangle3D tri);
+/** @brief Returns a triangle's vertices' Z positions. */
+static inline double* OFD_TriangleToZ(OFD_Triangle3D tri);
+/** @brief Returns each vertex as an array. */
+static inline double* OFD_TriangleToArray(OFD_Triangle3D tri);
 
 
 #endif // OFD_tetrahedron_c_h_

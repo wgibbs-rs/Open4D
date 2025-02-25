@@ -74,7 +74,7 @@ static inline double OFD_Vector4_Magnitude(OFD_Vector4 a);
  * can find the area of a parallelogram formed by vectors "a" and "b" in 4D space.
  * 
  */
-static inline OFD_Vector6 OFD_Vector4_Exterior(OFD_Vector4 a, OFD_Vector4 b);
+static inline OFD_Vector6 OFD_Exterior(OFD_Vector4 a, OFD_Vector4 b);
 /** @brief Adds two 4D vectors together. */
 static inline OFD_Vector4 OFD_Vector4_Add(OFD_Vector4 a, OFD_Vector4 b);
 /** @brief Subtracts vector "b" from vector "a" */

@@ -85,7 +85,7 @@ static inline double OFD_Vector4_Magnitude(OFD_Vector4 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 }
 
-static inline OFD_Vector6 OFD_Vector4_Exterior(OFD_Vector4 a, OFD_Vector4 b) {
+static inline OFD_Vector6 OFD_Exterior(OFD_Vector4 a, OFD_Vector4 b) {
     OFD_Vector6 o;
     o.xy = a.x * b.y - a.y * b.x;
     o.xz = a.x * b.z - a.z * b.x;

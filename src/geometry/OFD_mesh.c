@@ -18,3 +18,10 @@
       misrepresented as being the original software.
    3. This notice may not be removed or altered from any source distribution.
 */
+
+#include "OFD_mesh_c.h"
+
+
+static inline OFD_Triangle3D* OFD_SliceMesh(OFD_Mesh mesh, double w) {
+    
+}

@@ -36,6 +36,6 @@ typedef struct {
 static inline void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Rigidbody other[], double dt);
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-static inline double* OFD_UniformInertiaTensor(OFD_Mesh mesh);
+static inline double OFD_UniformInertiaTensor(OFD_Mesh mesh);
 
 #endif // OFD_rigidbody_c_h_

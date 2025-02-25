@@ -25,7 +25,7 @@
 #include "../util/OFD_vector_c.h"
 #include "../geometry/OFD_mesh_c.h"
 #include "OFD_rigidbody_c.h"
-#include <stdlib.h>
+
 
 typedef struct {
 
