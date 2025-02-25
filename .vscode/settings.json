@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "ofd_mesh_c.h": "c"
+        "ofd_mesh_c.h": "c",
+        "__locale": "c",
+        "ios": "c"
     }
 }
