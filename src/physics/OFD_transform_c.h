@@ -3,7 +3,7 @@
 #ifndef OFD_transform_c_h_
 #define OFD_transform_c_h_
 
-#include "../math/OFD_vector_c.h"
+#include "../util/OFD_vector_c.h"
 #include "../geometry/OFD_mesh_c.h"
 #include "OFD_rigidbody_c.h"
 #include <stdlib.h>
@@ -42,7 +42,7 @@ typedef struct {
     double rollingFriction;
 
     /** @brief The Moment Of Inertia tensor of the object. (kg • m^2) */
-    double inertiaTensor[4][4];
+    double inertia;
 
 } OFD_Transform;
 
@@ -53,9 +53,6 @@ static inline OFD_Transform OFD_DefaultTransform(OFD_Mesh mesh) {
     o.restitution = 0;
     o.kineticFriction = 0.5;
     o.staticFriction = 0.5;
-    double* uniformIneria = OFD_UniformInertiaTensor(mesh);
-    for (int i = 0; i < 4; i++) for (int j = 0; j < 4; j++)  o.inertiaTensor[i][j] = uniformIneria[i * 4 + j];
-    free(uniformIneria);
     return o;
 }
 

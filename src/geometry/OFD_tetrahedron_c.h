@@ -2,7 +2,7 @@
 #ifndef OFD_tetrahedron_c_h_
 #define OFD_tetrahedron_c_h_
 
-#include "../math/OFD_vector_c.h"
+#include "../util/OFD_vector_c.h"
 #include "OFD_triangle_c.h"
 
 /** @brief Defines a tetrahedron made of four 4D points. Each point is stored as an OFD_Vector4

@@ -4,7 +4,7 @@
 #define OFD_triangle_c_h_
 
 
-#include "../math/OFD_vector_c.h"
+#include "../util/OFD_vector_c.h"
 
 /** @brief Stores information on a 3D triangle's vertices. */
 typedef struct {
