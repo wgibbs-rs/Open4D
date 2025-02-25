@@ -39,8 +39,13 @@ typedef struct {
 
 /** @brief Defines a triangle in 3D space. */
 typedef struct {
-    OFD_Vector3 a, b, c;
+   OFD_Vector3 a, b, c;
 } OFD_Triangle3D;
+
+typedef struct {
+   int count;
+   OFD_Triangle3D mesh[];
+} OFD_Triangle3DArray;
 
 
 
@@ -52,7 +57,7 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-static inline OFD_Triangle3D* OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+static inline OFD_Triangle3DArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
 
 /** @brief Returns a triangle's vertices' X positions. */

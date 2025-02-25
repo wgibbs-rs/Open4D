@@ -19,15 +19,10 @@
    3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifndef OFD_impulse_c_h_
-#define OFD_impulse_c_h_
-
-#include "OFD_rigidbody_c.h"
-#include "OFD_transform_c.h"
+#ifndef OFD_util_h_
+#define OFD_util_h_
 
 
+#include "util/OFD_vector_c.h"
 
-
-
-
-#endif // OFD_impulse_c_h_
+#endif // OFD_util_h_

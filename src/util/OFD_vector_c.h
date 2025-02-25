@@ -20,7 +20,7 @@
 */
 
 #ifndef OFD_vector_c_h_
-#define OFT_vector_c_h_
+#define OFD_vector_c_h_
 
 
 /** @brief Represents a 2D vector. */

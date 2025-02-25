@@ -1,6 +1,6 @@
 /*
    Open4D
-   Copyright (c) 2025 William Gibbs
+   Copyright (c) 2025 William Gibbs & S.V
 
    This software is provided 'as-is', without any express or implied
    warranty. In no event will the authors be held liable for any damages
@@ -18,3 +18,18 @@
       misrepresented as being the original software.
    3. This notice may not be removed or altered from any source distribution.
 */
+
+#ifndef OPEN4D
+#define OPEN4D
+
+#include "geometry/OFD_mesh_c.h"
+#include "geometry/OFD_tetrahedron_c.h"
+
+#include "physics/OFD_collision_c.h"
+#include "physics/OFD_rigidbody_c.h"
+#include "physics/OFD_transform_c.h"
+
+#include "util/OFD_vector_c.h"
+
+#endif // OPEN4D
+

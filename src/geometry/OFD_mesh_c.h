@@ -27,11 +27,12 @@
 
 /** @brief Defines the structure for an object's geometry. */
 typedef struct {
-   OFD_Tetrahedron *mesh;
+   int structureLength; /**< Defines */
+   OFD_Tetrahedron mesh[];
 } OFD_Mesh;
 
 
 /** @brief Slices a 4D mesh into an array of 3D triangles. */
-static inline OFD_Triangle3D* OFD_SliceMesh(OFD_Mesh mesh, double w);
+static inline OFD_Triangle3DArray OFD_SliceMesh(OFD_Mesh mesh, double w);
 
 #endif // OFD_mesh_c_h_

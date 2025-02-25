@@ -21,8 +21,4 @@
 
 #include "OFD_tetrahedron_c.h"
 
-static inline OFD_Triangle3D* OFD_SliceTetrahedron(OFD_Tetrahedron a, double w) {
-
-
-
-}
+// static inline OFD_Triangle3DArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w) { }
