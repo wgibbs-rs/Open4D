@@ -68,5 +68,5 @@ Open4D is a physics engine with a strong focus on kinematics and geometry. If yo
 - **Update the documentation** once the appropriate changes have been made.
 
 # Legal
-Open4D is licensed under the "ZLib License" In short, any usage of this project is permitted, so long as the original license is included, a change to the software is noted, and the product is not claimed to be the creation of any individual other than William Gibbs, S.V, or the Open4D open-source community. This is not legal advice. For the official license for Open4D, go to LICENSE.
+Open4D is licensed under the "ZLib License" In short, any usage of this project is permitted, so long as the original license is included, a change to the software is noted, and the product is not claimed to be the creation of any individual other than William Gibbs, S.V, or the Open4D open-source community. This is not legal advice. For the official license for Open4D, go to (LICENSE.md)[LICENSE.md]
 
