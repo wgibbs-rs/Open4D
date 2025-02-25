@@ -1,6 +1,6 @@
 /*
    Open4D
-   Copyright (c) 2025 William Gibbs
+   Copyright (c) 2025 William Gibbs & S.V
 
    This software is provided 'as-is', without any express or implied
    warranty. In no event will the authors be held liable for any damages
@@ -23,5 +23,5 @@
 
 
 static inline OFD_Triangle3D* OFD_SliceMesh(OFD_Mesh mesh, double w) {
-    
+
 }
