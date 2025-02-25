@@ -64,7 +64,7 @@ Given the advanced nature of higher-dimensional space, and the community-oriente
 Open4D is a physics engine with a strong focus on kinematics and geometry. If you do not know how to code, or how to code in C/C++ (Given you're implementing core functionality), there are still ways to contribute. If you have a background in physics, higher dimensional geometry, or other topics that may be valuable to development, there are still ways to contribute. On our Github Wiki, there's information on the math behind our project. If you'd like to update or correct this math, you can create a new Issue, and work with other developers to implement of fix previous mathmatical concepts. For non-developers interested in adding new methods or features to this library, the same process is used. 
 
 - **Create an issue** to let C/C++ developers know you're looking to implement a concept.
-- **Implement the changes** to a seperate fork and branch, following the steps in the Contributing section.
+- **Implement the changes** to a separate fork and branch, following the steps in the Contributing section.
 - **Update the documentation** once the appropriate changes have been made.
 
 # Legal
