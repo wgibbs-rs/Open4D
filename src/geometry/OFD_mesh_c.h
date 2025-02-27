@@ -33,6 +33,6 @@ typedef struct {
 
 
 /** @brief Slices a 4D mesh into an array of 3D triangles. */
-static inline OFD_Triangle3DArray OFD_SliceMesh(OFD_Mesh mesh, double w);
+extern OFD_Triangle3DArray OFD_SliceMesh(OFD_Mesh mesh, double w);
 
 #endif // OFD_mesh_c_h_

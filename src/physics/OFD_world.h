@@ -18,3 +18,21 @@
       misrepresented as being the original software.
    3. This notice may not be removed or altered from any source distribution.
 */
+
+#ifndef OFD_world_h_
+#define OFD_world_h_
+
+
+/** @brief Defines parameters for world physics variables, like the constant of gravitational acceleration. */
+typedef struct {
+    double gravity;
+} OFD_WorldParameters;
+
+
+OFD_WorldParameters OFD_DefaultWorld() {
+    OFD_WorldParameters o;
+    o.gravity = 9.80665;
+    return o;
+}
+
+#endif // OFD_world_h_

@@ -18,3 +18,57 @@
       misrepresented as being the original software.
    3. This notice may not be removed or altered from any source distribution.
 */
+
+#include "OFD_rigidbody_c.h"
+#include "OFD_world.h"
+
+
+void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt) {
+
+   // Step 1: Apply gravity
+   a->transform.velocity.y -= world.gravity;
+
+   // Step 2: Test for collisions.
+
+
+   // Step 3: Apply impulse forces
+
+   
+   // Step 4: Apply translational velocity
+
+   a->transform.centerOfMass.x += a->transform.velocity.x * dt;
+   a->transform.centerOfMass.y += a->transform.velocity.y * dt;
+   a->transform.centerOfMass.z += a->transform.velocity.z * dt;
+   a->transform.centerOfMass.w += a->transform.velocity.w * dt;
+   for (int i = 0; i < a->mesh.structureLength; i++) {
+      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
+      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
+      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
+      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
+
+   }
+
+   // Step 5: Apply rotational velocity
+   for (int i = 0; i < a->mesh.structureLength; i++) {
+      a->mesh.mesh[i].a = OFD_Vector4_Rotate(a->mesh.mesh[i].a, a->transform.centerOfMass, a->transform.rotation);
+      a->mesh.mesh[i].b = OFD_Vector4_Rotate(a->mesh.mesh[i].b, a->transform.centerOfMass, a->transform.rotation);
+      a->mesh.mesh[i].c = OFD_Vector4_Rotate(a->mesh.mesh[i].c, a->transform.centerOfMass, a->transform.rotation);
+      a->mesh.mesh[i].d = OFD_Vector4_Rotate(a->mesh.mesh[i].d, a->transform.centerOfMass, a->transform.rotation);
+   }
+
+}
+
+/** @brief Offsets a vector by a given velocity and change in time. */
+static void offsetVector(OFD_Vector4* a, OFD_Vector4 velocity, double dt) {
+   a->x += velocity.x * dt;
+   a->y += velocity.y * dt;
+   a->z += velocity.z * dt;
+   a->w += velocity.w * dt;
+}
+
+
+void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]) {
+
+
+
+}

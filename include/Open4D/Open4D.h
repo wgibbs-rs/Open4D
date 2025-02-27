@@ -28,6 +28,7 @@
 #include "physics/OFD_collision_c.h"
 #include "physics/OFD_rigidbody_c.h"
 #include "physics/OFD_transform_c.h"
+#include "physics/OFD_world.h"
 
 #include "util/OFD_vector_c.h"
 

@@ -17,4 +17,5 @@ add_library(Open4D SHARED
 set_target_properties(Open4D PROPERTIES
     OUTPUT_NAME "Open4D"
 )
+
 target_include_directories(Open4D PUBLIC include)

@@ -25,6 +25,8 @@
 
 #include "../geometry/OFD_mesh_c.h"
 #include "OFD_transform_c.h"
+#include "OFD_world.h"
+
 
 /** @brief Stored information on a given physics object. */
 typedef struct {
@@ -33,9 +35,13 @@ typedef struct {
 } OFD_Rigidbody;
 
 /** @brief Animates a rigidbody by a time interval (dt). */
-static inline void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Rigidbody other[], double dt);
+extern void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt);
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-static inline double OFD_UniformInertiaTensor(OFD_Mesh mesh);
+extern double OFD_UniformInertiaTensor(OFD_Mesh mesh);
+
+/** @brief Calculates and updates the velocities of a given object based on a collision impulse. */
+extern void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]);
+
 
 #endif // OFD_rigidbody_c_h_

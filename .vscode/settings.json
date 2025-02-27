@@ -3,6 +3,8 @@
         "ofd_mesh_c.h": "c",
         "__locale": "c",
         "ios": "c",
-        "ofd_vector_c.h": "c"
+        "ofd_vector_c.h": "c",
+        "ofd_tetrahedron_c.h": "c",
+        "stdlib.h": "c"
     }
 }

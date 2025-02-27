@@ -23,5 +23,6 @@
 #define OFD_object_h_
 
 #include "physics/OFD_rigidbody_c.h"
+#include "physics/OFD_world.h"
 
 #endif // OFD_object_h_

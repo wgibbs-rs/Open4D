@@ -57,17 +57,17 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-static inline OFD_Triangle3DArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+extern OFD_Triangle3DArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
 
 /** @brief Returns a triangle's vertices' X positions. */
-static inline double* OFD_TriangleToX(OFD_Triangle3D tri);
+extern double* OFD_TriangleToX(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Y positions. */
-static inline double* OFD_TriangleToY(OFD_Triangle3D tri);
+extern double* OFD_TriangleToY(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Z positions. */
-static inline double* OFD_TriangleToZ(OFD_Triangle3D tri);
+extern double* OFD_TriangleToZ(OFD_Triangle3D tri);
 /** @brief Returns each vertex as an array. */
-static inline double* OFD_TriangleToArray(OFD_Triangle3D tri);
+extern double* OFD_TriangleToArray(OFD_Triangle3D tri);
 
 
 #endif // OFD_tetrahedron_c_h_

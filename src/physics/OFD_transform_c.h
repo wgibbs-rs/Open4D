@@ -31,10 +31,16 @@ typedef struct {
 
     /** @brief The spatial position of this object in 4D space. */
     OFD_Vector4 position;
+
+    /** @brief The center of mass of this object. */
+    OFD_Vector4 centerOfMass;
+
     /** @brief The translational velocity of this object in 4D space. (m/s) */
     OFD_Vector4 velocity;
+
     /** @brief The current rotation of the object from it's initial position. (degrees) */
     OFD_Vector6 rotation;
+
     /** @brief The angular velocity of this object in 4D space. (degrees) */
     OFD_Vector6 angularVelocity;
 
@@ -66,7 +72,7 @@ typedef struct {
 } OFD_Transform;
 
 
-static inline OFD_Transform OFD_DefaultTransform(OFD_Mesh mesh) {
+OFD_Transform OFD_DefaultTransform(OFD_Mesh mesh) {
     OFD_Transform o;
     o.mass = 1;
     o.restitution = 0;
