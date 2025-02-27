@@ -22,6 +22,8 @@
 #include "OFD_tetrahedron_c.h"
 #include <stdlib.h>
 
+static double* toArray(OFD_Vector3 p);
+
 OFD_Triangle3DArray *OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
    if (t.a.w < w && t.b.w < w && t.c.w < w && t.d.w < w) return NULL;
    if (t.a.w > w && t.b.w > w && t.c.w > w && t.d.w > w) return NULL;

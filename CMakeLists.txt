@@ -6,7 +6,6 @@ set(CMAKE_C_STANDARD 99)
 
 # Add the library 
 add_library(Open4D SHARED 
-    src/OFD.c 
     src/geometry/OFD_mesh.c
     src/geometry/OFD_tetrahedron.c
     src/physics/OFD_collision.c
