@@ -19,9 +19,11 @@
    3. This notice may not be removed or altered from any source distribution.
 */
 
-#include "OFD_rigidbody_c.h"
-#include "OFD_world.h"
+#include "Open4D/OFD_physics.h"
 
+
+/** @brief Offsets a vector by a given velocity and change in time. */
+static void offsetVector(OFD_Vector4* a, OFD_Vector4 velocity, double dt);
 
 void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt) {
 
@@ -58,7 +60,7 @@ void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameter
 
 }
 
-/** @brief Offsets a vector by a given velocity and change in time. */
+
 static void offsetVector(OFD_Vector4* a, OFD_Vector4 velocity, double dt) {
    a->x += velocity.x * dt;
    a->y += velocity.y * dt;

@@ -22,15 +22,9 @@
 #ifndef OPEN4D
 #define OPEN4D
 
-#include "geometry/OFD_mesh_c.h"
-#include "geometry/OFD_tetrahedron_c.h"
-
-#include "physics/OFD_collision_c.h"
-#include "physics/OFD_rigidbody_c.h"
-#include "physics/OFD_transform_c.h"
-#include "physics/OFD_world.h"
-
-#include "util/OFD_vector_c.h"
+#include <Open4D/OFD_geometry.h>
+#include <Open4D/OFD_object.h>
+#include <Open4D/OFD_util.h>
 
 #endif // OPEN4D
 

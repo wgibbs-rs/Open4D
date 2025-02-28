@@ -19,8 +19,7 @@
    3. This notice may not be removed or altered from any source distribution.
 */
 
-#include "OFD_mesh_c.h"
-#include "OFD_tetrahedron_c.h"
+#include "Open4D/OFD_geometry.h"
 #include <stdio.h>
 
 // OFD_Triangle3DArray OFD_SliceMesh(OFD_Mesh mesh, double w) { }

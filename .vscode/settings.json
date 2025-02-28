@@ -5,6 +5,14 @@
         "ios": "c",
         "ofd_vector_c.h": "c",
         "ofd_tetrahedron_c.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "queue": "c",
+        "stack": "c",
+        "renderer_c.h": "c",
+        "stdio.h": "c",
+        "ofd_physics.h": "c",
+        "renderer.h": "c",
+        "ofd_geometry.h": "c",
+        "__node_handle": "c"
     }
 }

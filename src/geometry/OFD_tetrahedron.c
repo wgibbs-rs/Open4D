@@ -19,20 +19,54 @@
    3. This notice may not be removed or altered from any source distribution.
 */
 
-#include "OFD_tetrahedron_c.h"
+#include "Open4D/OFD_geometry.h"
 #include <stdlib.h>
 
+static OFD_Triangle3D triangleFromPoints(OFD_Vector3 a, OFD_Vector3 b, OFD_Vector3 c);
+static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b);
 static double* toArray(OFD_Vector3 p);
+static int sgn(double x);
 
-OFD_Triangle3DArray *OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
+OFD_Triangle3D *OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
    if (t.a.w < w && t.b.w < w && t.c.w < w && t.d.w < w) return NULL;
    if (t.a.w > w && t.b.w > w && t.c.w > w && t.d.w > w) return NULL;
    
    int sa = sgn(t.a.w - w); int sb = sgn(t.b.w - w); int sc = sgn(t.c.w - w); int sd = sgn(t.d.w - w);
 
    if (sa != sb && sa != sc && sa != sd) {
-
+      OFD_Triangle3D *out = malloc(sizeof(OFD_Triangle3D));
+      *out = triangleFromPoints(inter(t.a, t.b), inter(t.a, t.c), inter(t.a, t.d));
+      return out;
    }
+   if (sb != sa && sb != sc && sb != sd) {
+      OFD_Triangle3D *out = malloc(sizeof(OFD_Triangle3D));
+      *out = triangleFromPoints(inter(t.a, t.b), inter(t.a, t.c), inter(t.a, t.d));
+      return out;
+   }
+   if (sc != sa && sc != sb && sc != sd) {
+      OFD_Triangle3D *out = malloc(sizeof(OFD_Triangle3D));
+      *out = triangleFromPoints(inter(t.a, t.b), inter(t.a, t.c), inter(t.a, t.d));
+      return out;
+   }
+   if (sd != sa && sd != sb && sd != sc) {
+      OFD_Triangle3D *out = malloc(sizeof(OFD_Triangle3D));
+      *out = triangleFromPoints(inter(t.a, t.b), inter(t.a, t.c), inter(t.a, t.d));
+      return out;
+   }
+   
+
+
+}
+
+static OFD_Triangle3D triangleFromPoints(OFD_Vector3 a, OFD_Vector3 b, OFD_Vector3 c) {
+   OFD_Triangle3D out;
+   out.a = a;
+   out.b = b;
+   out.c = c;
+   return out;
+}
+
+static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b) {
 
 }
 
@@ -43,31 +77,23 @@ static int sgn(double x) {
 }
 
 double* OFD_TriangleToX(OFD_Triangle3D tri) {
-   double a[3];
+   double* a = malloc(3 * sizeof(double));
+   if (!a) return NULL;
    a[0] = tri.a.x; a[1] = tri.b.x; a[2] = tri.c.x;
-   return &a;
+   return a;
 }
 
 double* OFD_TriangleToY(OFD_Triangle3D tri) {
-   double a[3];
+   double* a = malloc(3 * sizeof(double));
+   if (!a) return NULL;
    a[0] = tri.a.y; a[1] = tri.b.y; a[2] = tri.c.y;
-   return &a;
+   return a;
 }
+
 
 double* OFD_TriangleToZ(OFD_Triangle3D tri) {
-   double a[3];
+   double* a = malloc(3 * sizeof(double));
+   if (!a) return NULL;
    a[0] = tri.a.z; a[1] = tri.b.z; a[2] = tri.c.z;
-   return &a;
-}
-
-double* OFD_TriangleToArray(OFD_Triangle3D tri) {
-   double* a[3];
-   a[0] = toArray(tri.a); a[1] = toArray(tri.b); a[2] = toArray(tri.c);
-   return &a;
-}
-
-static double* toArray(OFD_Vector3 p) {
-   double a[3];
-   a[0] = p.x; a[1] = p.y; a[2] = p.z;
-   return &a;
+   return a;
 }
