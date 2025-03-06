@@ -28,17 +28,17 @@ double OFD_Vector2_Magnitude(OFD_Vector2 a) {
 }
 
 OFD_Vector2 OFD_Vector2_Add(OFD_Vector2 a, OFD_Vector2 b) {
-    OFD_Vector2 o;
-    o.x = a.x + b.x;
-    o.y = a.y + b.y;
-    return o;
+    return (OFD_Vector2){ 
+        a.x + b.x,
+        a.y + b.y
+    };
 }
 
 OFD_Vector2 OFD_Vector2_Subtract(OFD_Vector2 a, OFD_Vector2 b) {
-    OFD_Vector2 o;
-    o.x = a.x - b.x;
-    o.y = a.y - b.y;
-    return o;
+    return (OFD_Vector2){
+        a.x - b.x,
+        a.y - b.y
+    };
 }
 
 double OFD_Vector2_Dot(OFD_Vector2 a, OFD_Vector2 b) {
@@ -52,27 +52,27 @@ double OFD_Vector3_Magnitude(OFD_Vector3 a) {
 }
 
 OFD_Vector3 OFD_Cross(OFD_Vector3 a, OFD_Vector3 b) {
-    OFD_Vector3 o;
-    o.x = a.y * b.z - a.z * b.y;
-    o.y = a.z * b.x - a.x * b.z;
-    o.z = a.x * b.y - a.y * b.x;
-    return o;
+    return (OFD_Vector3){
+        a.y * b.z - a.z * b.y,
+        a.z * b.x - a.x * b.z,
+        a.x * b.y - a.y * b.x
+    };
 }
 
 OFD_Vector3 OFD_Vector3_Add(OFD_Vector3 a, OFD_Vector3 b) {
-    OFD_Vector3 o;
-    o.x = a.x + b.x;
-    o.y = a.y + b.y;
-    o.z = a.z + b.z;
-    return o;
+    return (OFD_Vector3){
+        a.x + b.x,
+        a.y + b.y,
+        a.z + b.z
+    };
 }
 
 OFD_Vector3 OFD_Vector3_Subtract(OFD_Vector3 a, OFD_Vector3 b) {
-    OFD_Vector3 o;
-    o.x = a.x - b.x;
-    o.y = a.y - b.y;
-    o.z = a.z - b.z;
-    return o;
+    return (OFD_Vector3){
+        a.x - b.x,
+        a.y - b.y,
+        a.z - b.z
+    };
 }
 
 double OFD_Vector3_Dot(OFD_Vector3 a, OFD_Vector3 b) {
@@ -86,32 +86,32 @@ double OFD_Vector4_Magnitude(OFD_Vector4 a) {
 }
 
 OFD_Vector6 OFD_Exterior(OFD_Vector4 a, OFD_Vector4 b) {
-    OFD_Vector6 o;
-    o.xy = a.x * b.y - a.y * b.x;
-    o.xz = a.x * b.z - a.z * b.x;
-    o.xw = a.x * b.w - a.w * b.x;
-    o.yz = a.y * b.z - a.z * b.y;
-    o.yw = a.y * b.w - a.w * b.y;
-    o.zw = a.z * b.w - a.w * b.z;
-    return o;
+    return (OFD_Vector6){
+        a.x * b.y - a.y * b.x,
+        a.x * b.z - a.z * b.x,
+        a.x * b.w - a.w * b.x,
+        a.y * b.z - a.z * b.y,
+        a.y * b.w - a.w * b.y,
+        a.z * b.w - a.w * b.z
+    };
 }
 
 OFD_Vector4 OFD_Vector4_Add(OFD_Vector4 a, OFD_Vector4 b) {
-    OFD_Vector4 o;
-    o.x = a.x + b.x;
-    o.y = a.y + b.y;
-    o.z = a.z + b.z;
-    o.w = a.w + b.w;
-    return o;
+    return (OFD_Vector4){
+        a.x + b.x,
+        a.y + b.y,
+        a.z + b.z,
+        a.w + b.w
+    };
 }
 
 OFD_Vector4 OFD_Vector4_Subtract(OFD_Vector4 a, OFD_Vector4 b) {
-    OFD_Vector4 o;
-    o.x = a.x - b.x;
-    o.y = a.y - b.y;
-    o.z = a.z - b.z;
-    o.w = a.w - b.w;
-    return o;
+    return (OFD_Vector4){
+        a.x - b.x,
+        a.y - b.y,
+        a.z - b.z,
+        a.w - b.w
+    };
 }
 
 double OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b) {

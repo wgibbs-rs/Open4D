@@ -49,9 +49,20 @@ typedef struct {
 
 /** @brief Defines the structure for an object's geometry. */
 typedef struct {
-   int structureLength; /**< Defines */
-   OFD_Tetrahedron mesh[];
+   int length;
+   OFD_Tetrahedron *mesh;
 } OFD_Mesh;
+
+
+
+/** @brief Slices a 4D mesh, returning a set of 3D faces.
+ * 
+ * This function uses OFD_SliceTetrahedron on all tetrahedrons in this mesh. From there,
+ * it returns an pointer to an array of 3D faces.
+ * 
+ * @return Either one or two triangles. Will always be treated as an array.
+ */
+extern OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w);
 
 
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
@@ -65,13 +76,11 @@ typedef struct {
 extern OFD_Triangle3D *OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
 
-
 /** @brief Returns a triangle's vertices' X positions. */
 extern double* OFD_TriangleToX(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Y positions. */
 extern double* OFD_TriangleToY(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Z positions. */
 extern double* OFD_TriangleToZ(OFD_Triangle3D tri);
-
 
 #endif // OFD_geometry_h_

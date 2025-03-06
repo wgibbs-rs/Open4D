@@ -2,7 +2,6 @@
 
 #include "renderer.h"
 
-
 #include <raylib.h>
 
 int main(void) {

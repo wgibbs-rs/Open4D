@@ -8,7 +8,7 @@
 #include <Open4D/OFD_util.h>
 
 /** Draw a triangle to the active screen. Will be rendered for one frame before being cleared. */
-extern void drawTriangle3D(OFD_Triangle3D tri[]);
+extern void drawTriangle3D(OFD_Triangle3D tri);
 
 /** Draw a point to the active screen. Will be rendered for one frame before being cleared. */
 extern void drawPoint3D(OFD_Vector3 p);

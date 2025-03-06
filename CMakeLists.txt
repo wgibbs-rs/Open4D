@@ -8,6 +8,7 @@ set(CMAKE_C_STANDARD 99)
 add_library(Open4D SHARED 
     ${CMAKE_SOURCE_DIR}/src/geometry/OFD_mesh.c
     ${CMAKE_SOURCE_DIR}/src/geometry/OFD_tetrahedron.c
+    ${CMAKE_SOURCE_DIR}/src/geometry/OFD_primitive.c
     ${CMAKE_SOURCE_DIR}/src/physics/OFD_collision.c
     ${CMAKE_SOURCE_DIR}/src/physics/OFD_rigidbody.c
     ${CMAKE_SOURCE_DIR}/src/util/OFD_vector.c

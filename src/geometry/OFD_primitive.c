@@ -20,35 +20,3 @@
 */
 
 #include "Open4D/OFD_geometry.h"
-#include <stdlib.h>
-#include <stdio.h>
-
-
-OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w) { 
-   OFD_Triangle3D *out = NULL;
-   int count = 0;
-
-   // Iterate through all tetrahedrons and add their slice to a mesh.
-   for (int i = 0; i < mesh.length; i++) { 
-      OFD_Triangle3D *slice = OFD_SliceTetrahedron(mesh.mesh[i], w);
-      if (!slice) { continue; }
-
-      int length = sizeof(slice) / sizeof(slice[0]);
-
-      // Extend 'out' to account for new OFD_Triangle3D's.
-      out = realloc(out, (count + length) * sizeof(OFD_Triangle3D));
-
-      if (!out) { 
-         free(slice);
-         return NULL;
-      }
-
-      out[count] = slice[0];
-      if (length == 2) {
-         out[count + 1] = slice[1];
-      }
-      count += length;
-      free(slice);
-   }
-   return out;
-}

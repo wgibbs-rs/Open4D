@@ -22,6 +22,20 @@
 #include "Open4D/OFD_physics.h"
 
 
+const OFD_Transform OFD_DEFAULT_TRANSFORM = { 
+   .position = {0, 0, 0, 0}, 
+   .center_of_mass = {0, 0, 0, 0}, 
+   .rotation = {0, 0, 0, 0, 0, 0}, 
+   .angular_velocity = {0, 0, 0, 0, 0, 0},
+   .mass = 1,
+   .restitution = 0,
+   .static_friction = 0,
+   .kinetic_friction = 0,
+   .rolling_friction = 0,
+   .inertia = 10
+};
+
+
 /** @brief Offsets a vector by a given velocity and change in time. */
 static void offsetVector(OFD_Vector4* a, OFD_Vector4 velocity, double dt);
 
@@ -38,24 +52,23 @@ void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameter
    
    // Step 4: Apply translational velocity
 
-   a->transform.centerOfMass.x += a->transform.velocity.x * dt;
-   a->transform.centerOfMass.y += a->transform.velocity.y * dt;
-   a->transform.centerOfMass.z += a->transform.velocity.z * dt;
-   a->transform.centerOfMass.w += a->transform.velocity.w * dt;
-   for (int i = 0; i < a->mesh.structureLength; i++) {
+   a->transform.center_of_mass.x += a->transform.velocity.x * dt;
+   a->transform.center_of_mass.y += a->transform.velocity.y * dt;
+   a->transform.center_of_mass.z += a->transform.velocity.z * dt;
+   a->transform.center_of_mass.w += a->transform.velocity.w * dt;
+   for (int i = 0; i < a->mesh.length; i++) {
       offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
       offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
       offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
       offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
-
    }
 
    // Step 5: Apply rotational velocity
-   for (int i = 0; i < a->mesh.structureLength; i++) {
-      a->mesh.mesh[i].a = OFD_Vector4_Rotate(a->mesh.mesh[i].a, a->transform.centerOfMass, a->transform.rotation);
-      a->mesh.mesh[i].b = OFD_Vector4_Rotate(a->mesh.mesh[i].b, a->transform.centerOfMass, a->transform.rotation);
-      a->mesh.mesh[i].c = OFD_Vector4_Rotate(a->mesh.mesh[i].c, a->transform.centerOfMass, a->transform.rotation);
-      a->mesh.mesh[i].d = OFD_Vector4_Rotate(a->mesh.mesh[i].d, a->transform.centerOfMass, a->transform.rotation);
+   for (int i = 0; i < a->mesh.length; i++) {
+      a->mesh.mesh[i].a = OFD_Vector4_Rotate(a->mesh.mesh[i].a, a->transform.center_of_mass, a->transform.rotation);
+      a->mesh.mesh[i].b = OFD_Vector4_Rotate(a->mesh.mesh[i].b, a->transform.center_of_mass, a->transform.rotation);
+      a->mesh.mesh[i].c = OFD_Vector4_Rotate(a->mesh.mesh[i].c, a->transform.center_of_mass, a->transform.rotation);
+      a->mesh.mesh[i].d = OFD_Vector4_Rotate(a->mesh.mesh[i].d, a->transform.center_of_mass, a->transform.rotation);
    }
 
 }

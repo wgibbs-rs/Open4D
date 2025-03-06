@@ -40,7 +40,7 @@ typedef struct {
    OFD_Vector4 position;
 
    /** @brief The center of mass of this object. */
-   OFD_Vector4 centerOfMass;
+   OFD_Vector4 center_of_mass;
 
    /** @brief The translational velocity of this object in 4D space. (m/s) */
    OFD_Vector4 velocity;
@@ -49,7 +49,7 @@ typedef struct {
    OFD_Vector6 rotation;
 
    /** @brief The angular velocity of this object in 4D space. (degrees) */
-   OFD_Vector6 angularVelocity;
+   OFD_Vector6 angular_velocity;
 
    /** @brief The mass of the object's structure. (kg) */
    double mass;
@@ -62,34 +62,24 @@ typedef struct {
     * A simulation can contain many objects of varying frictional proportions, therefore each
     * object is assigned a frictional value, which will be used when in contact with another object.
     */
-   double staticFriction;
+   double static_friction;
    /** @brief The resistance of an object to sliding motions. (no unit)
     * 
     * A simulation can contain many objects of varying frictional proportions, therefor each
     * object is assigned a friction value, which will be used when in contact with another object.
     */
-   double kineticFriction;
+   double kinetic_friction;
 
    /** @brief The resistance of an object to rolling motion. (no unit) */
-   double rollingFriction;
+   double rolling_friction;
 
    /** @brief The Moment Of Inertia tensor of the object. (kg • m^2) */
    double inertia;
 
 } OFD_Transform;
 
-static OFD_Transform OFD_DEFAULT_TRANSFORM = { 
-   {0, 0, 0, 0}, 
-   {0, 0, 0, 0}, 
-   {0, 0, 0, 0, 0, 0}, 
-   {0, 0, 0, 0, 0, 0},
-   1,
-   0,
-   0,
-   0,
-   0,
-   10
-};
+
+extern const OFD_Transform OFD_DEFAULT_TRANSFORM;
 
 
 /** @brief Stored information on a given physics object. */

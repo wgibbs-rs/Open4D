@@ -17,8 +17,13 @@ static double rotation = 0;
 
 static const double DEGREES_TO_RADIANS = (M_PI / 180);
 
-void drawTriangle3D(OFD_Triangle3D tri[]) {
-    
+void drawTriangle3D(OFD_Triangle3D tri) {
+    DrawTriangle3D(
+        (Vector3){tri.a.x, tri.a.y, tri.a.z},
+        (Vector3){tri.b.x, tri.b.y, tri.b.z},
+        (Vector3){tri.c.x, tri.c.y, tri.c.z},
+        BLUE
+    );
 }
 
 
@@ -59,7 +64,7 @@ void renderFrame(OFD_Mesh env[]) {
         (Vector3){0.0f, 0.0f, 0.0f},
         (Vector3){2.0f, 3.0f, 1.0f},
         (Vector3){1.0f, 2.0f, -2.0f},
-        RED
+        BLUE
     );
 
     EndMode3D();
