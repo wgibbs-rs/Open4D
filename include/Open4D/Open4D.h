@@ -23,7 +23,7 @@
 #define OPEN4D
 
 #include <Open4D/OFD_geometry.h>
-#include <Open4D/OFD_object.h>
+#include <Open4D/OFD_physics.h>
 #include <Open4D/OFD_util.h>
 
 #endif // OPEN4D
