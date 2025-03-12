@@ -89,8 +89,6 @@ OFD_Triangle3D *OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
    printf("When slicing a mesh, no result was reached. Returning NULL.\n\nPlease report this error to the official Open4D Github at https://github.com/wgibbs-rs/Open4D.");
    return NULL;
    
-
-
 }
 
 static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
@@ -101,6 +99,8 @@ static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
       percent * (b.z - a.z) + a.z
    };
 }
+
+
 
 static OFD_Triangle3D triangleFromPoints(OFD_Vector3 a, OFD_Vector3 b, OFD_Vector3 c) {
    return (OFD_Triangle3D) {a, b, c};
