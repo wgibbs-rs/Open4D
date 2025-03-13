@@ -23,6 +23,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+struct OFD_RegularMesh OFD_regular_mesh[] = {
+   [FIVE_CELL] = {3, 3, 3},
+   [EIGHT_CELL] = {4, 3, 3},
+   [SIXTEEN_CELL] = {3, 3, 4},
+   [TWENTY_FOUR_CELL] = {3, 4, 3},
+   [ONE_TWENTY_CELL] = {5, 3, 3},
+   [SIX_HUNDRED_CELL] = {3, 3, 5}
+};
+
 
 OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w) { 
    OFD_Triangle3D *out = NULL;

@@ -83,4 +83,48 @@ extern double* OFD_TriangleToY(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Z positions. */
 extern double* OFD_TriangleToZ(OFD_Triangle3D tri);
 
+
+// Define enum for the cells
+enum OFD_Cell {
+   FIVE_CELL,
+   EIGHT_CELL,
+   SIXTEEN_CELL,
+   TWENTY_FOUR_CELL,
+   ONE_TWENTY_CELL,
+   SIX_HUNDRED_CELL
+};
+
+
+// Defined to allow for the OFD_regular_mesh
+struct OFD_RegularMesh {
+   int values[3];
+};
+
+/** @brief Defines the Schläfli Symbol for a given regular polytope.
+ * 
+ * Each polytope is provided by name, rather than index. To read the schläfli symbol of a given
+ * polytope, call OFD_regular_mesh[NAME_CELL];
+ * 
+ * The available polytopes are:
+ * 
+ * - FIVE_CELL: 5-Cell, also known as the 4-simplex, is the simplest structure defined in
+ * 4D space. It contains 5 cells.
+ * 
+ * - EIGHT_CELL: 8-Cell, also known as the Tesseract, is the 4D equivalent of a cube.
+ * 
+ * - SIXTEEN_CELL: 16-Cell, also known as the hexadecachoron, is the simplest structure in 4D
+ * space that has no 3D or 2D equivalent.
+ * 
+ * - TWENTY_FOUR_CELL: 24-Cell, also known as the hyper-diamond, contains 24 octohedral cells.
+ * 
+ * - ONE_TWENTY_CELL: 120-Cell, also known as the hyper-dodecahedron, contains 120 dodecahedral
+ * cells. It's the 4D equivalent of the dodecahedron, similar to how the regular dodecahedron is
+ * the 3D equivalent of the pentagon.
+ * 
+ * - SIX_HUNDRED_CELL: 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
+ * It is the dual-polytope of the 120-Cell.
+*/
+extern struct OFD_RegularMesh OFD_regular_mesh[6];
+
+
 #endif // OFD_geometry_h_
