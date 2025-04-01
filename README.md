@@ -52,7 +52,7 @@ We welcome any and all developers interested in contributing to this project. Op
 5. **Push your Branch:** After you've implemented your changes, you can push this branch to the fork you previously created.
 6. **Open a Pull Request:** After merging the branch, create a Pull Request (PR) to have your changes reviewed and made official. Go to the official Open4D Github repository. On the "Pull Requests" tab, click "Open Pull Request" and follow the given instructions.
 ## Contribution Guidelines
-While contributions to Open4D are encouraged and welcomed, we want to ensure the project stays organized and usable. To do this, we've implemented a few rules that should be followed. **If these rules cannot be followed, contact an Open4D administrator.
+While contributions to Open4D are encouraged and welcomed, we want to ensure the project stays organized and usable. To do this, we've implemented a few rules that should be followed. If these rules cannot be followed, contact an Open4D administrator.
 - **Do not create a new file.** All current files for Open4D are compiled and used across the software. Creating new files can introduce underlying issues and slow down the efficiency of the project. If you'd like to create a new file, request a file in the repositories Issues section.
 - **Do not use any external libraries.** This software is intended to be a lightweight physics library. Introducing libraries for things like rendering, physics, or computation is unnecessary. If you must do so, open an Issue to discuss this with other collaborators.
 - **Do not upload broken code.** While you may commit *incomplete* code to your branch, do not commit broken, errored, or bugged code to the official repository. This code will be rejected.

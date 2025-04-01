@@ -42,7 +42,7 @@ OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w) {
       OFD_Triangle3D *slice = OFD_SliceTetrahedron(mesh.mesh[i], w);
       if (!slice) { continue; }
 
-      int length = sizeof(slice) / sizeof(slice[0]);
+      int length = sizeof(*slice) / sizeof(slice[0]);
 
       // Extend 'out' to account for new OFD_Triangle3D's.
       out = realloc(out, (count + length) * sizeof(OFD_Triangle3D));
