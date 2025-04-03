@@ -127,4 +127,23 @@ struct OFD_RegularMesh {
 extern struct OFD_RegularMesh OFD_regular_mesh[6];
 
 
+/** The 5-Cell, also known as the 4-simplex, is the simplest structure defined in 
+ * 4D space. It contains 5 cells.  */
+extern OFD_Mesh OFD_five_cell();
+/** The 8-Cell, also known as the Tesseract, is the 4D equivalent of a cube. */
+extern OFD_Mesh OFD_eight_cell();
+/** The 16-Cell, also known as the hexadecachoron, is the simplest structure in 
+ * 4D space that has no 3D or 2D equivalent. */
+extern OFD_Mesh OFD_sixteen_cell();
+/** The 24-Cell, also known as the hyper-diamond, contains 24 octohedral cells. */
+extern OFD_Mesh OFD_twenty_four_cell();
+/** The 120-Cell, also known as the hyper-dodecahedron, contains 
+ * 120 dodecahedral cells. It's the 4D equivalent of the dodecahedron, 
+ * similar to how the regular dodecahedron is the 3D equivalent of the pentagon. */
+extern OFD_Mesh OFD_one_twenty_cell();
+/** The 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
+ * It is the dual-polytope of the 120-Cell. */
+extern OFD_Mesh OFD_six_hundred_cell();
+
+
 #endif // OFD_geometry_h_

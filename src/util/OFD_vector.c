@@ -125,5 +125,5 @@ double OFD_Vector6_Magnitude(OFD_Vector6 a) {
 
 
 OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r) {
-    
+    // TODO
 }

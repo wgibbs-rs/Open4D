@@ -13,6 +13,23 @@
         "ofd_physics.h": "c",
         "renderer.h": "c",
         "ofd_geometry.h": "c",
-        "__node_handle": "c"
+        "__node_handle": "c",
+        "__bit_reference": "c",
+        "__config": "c",
+        "__hash_table": "c",
+        "__split_buffer": "c",
+        "algorithm": "c",
+        "deque": "c",
+        "iterator": "c",
+        "locale": "c",
+        "memory": "c",
+        "optional": "c",
+        "sstream": "c",
+        "string": "c",
+        "string_view": "c",
+        "tuple": "c",
+        "unordered_map": "c",
+        "variant": "c",
+        "vector": "c"
     }
 }
