@@ -29,7 +29,7 @@
 /** The 5-Cell, also known as the 4-simplex, is the simplest structure defined in 
  * 4D space. It contains 5 cells.  */
 extern OFD_Mesh OFD_five_cell() {
-   OFD_Mesh output = {.mesh = malloc(5 * sizeof(OFD_Tetrahedron))};
+   OFD_Mesh output = {.mesh = malloc(5 * sizeof(OFD_Tetrahedron)), .length = 5};
    if (!output.mesh) { perror("Failed to allocate memory for mesh."); return output; }
 
    output.mesh[0] = (OFD_Tetrahedron){(OFD_Vector4) {0.7905694,-0.45643547,0.32274857,-0.24999996},(OFD_Vector4) {-0.7905694,-0.45643547,0.32274857,-0.24999996},(OFD_Vector4) {-0.000000059604645,0.000000059604645,-0.968246,-0.24999996},(OFD_Vector4) {-0.000000059604645,0.912871,0.32274857,-0.24999996}};
@@ -45,7 +45,7 @@ extern OFD_Mesh OFD_five_cell() {
 
 /** The 8-Cell, also known as the Tesseract, is the 4D equivalent of a cube. */
 extern OFD_Mesh OFD_eight_cell() {
-   OFD_Mesh output = {.mesh = malloc(48 * sizeof(OFD_Tetrahedron))};
+   OFD_Mesh output = {.mesh = malloc(48 * sizeof(OFD_Tetrahedron)), .length = 48};
    if (!output.mesh) { perror("Failed to allocate memory for mesh."); return output; }
 
    output.mesh[0] = (OFD_Tetrahedron){(OFD_Vector4) {0.5,-0.5,0.5,-0.5},(OFD_Vector4) {-0.5,-0.5,0.5,-0.5},(OFD_Vector4) {-0.49999994,-0.49999994,-0.49999988,-0.5},(OFD_Vector4) {-0.49999994,0.49999994,-0.49999988,-0.5}};
@@ -104,7 +104,7 @@ extern OFD_Mesh OFD_eight_cell() {
 /** The 16-Cell, also known as the hexadecachoron, is the simplest structure in 
  * 4D space that has no 3D or 2D equivalent. */
 extern OFD_Mesh OFD_sixteen_cell() {
-   OFD_Mesh output = {.mesh = malloc(16 * sizeof(OFD_Tetrahedron))};
+   OFD_Mesh output = {.mesh = malloc(16 * sizeof(OFD_Tetrahedron)), .length = 16};
    if (!output.mesh) { perror("Failed to allocate memory for mesh."); return output; }
 
    output.mesh[0] = (OFD_Tetrahedron){(OFD_Vector4) {0.7071069,-0.40824834,0.28867516,-0.49999985},(OFD_Vector4) {-0.7071069,-0.40824834,0.28867516,-0.49999985},(OFD_Vector4) {-0.00000011920929,0,-0.86602545,-0.49999985},(OFD_Vector4) {-0.00000011920929,0.8164966,0.28867516,-0.49999985}};
@@ -131,7 +131,7 @@ extern OFD_Mesh OFD_sixteen_cell() {
 
 /** The 24-Cell, also known as the hyper-diamond, contains 24 octohedral cells. */
 extern OFD_Mesh OFD_twenty_four_cell() {
-   OFD_Mesh output = {.mesh = malloc(96 * sizeof(OFD_Tetrahedron))};
+   OFD_Mesh output = {.mesh = malloc(96 * sizeof(OFD_Tetrahedron)), .length = 96};
    if (!output.mesh) { perror("Failed to allocate memory for mesh."); return output; }
    
    output.mesh[0] = (OFD_Tetrahedron){(OFD_Vector4) {0.5,-0.28867513,0.4082483,-0.70710677},(OFD_Vector4) {-0.5,-0.28867513,0.4082483,-0.70710677},(OFD_Vector4) {-0.49999994,0.2886752,-0.40824825,-0.70710677},(OFD_Vector4) {-0.000000059604645,0.5773502,0.4082483,-0.70710677}};
@@ -239,7 +239,7 @@ extern OFD_Mesh OFD_twenty_four_cell() {
  * 120 dodecahedral cells. It's the 4D equivalent of the dodecahedron, 
  * similar to how the regular dodecahedron is the 3D equivalent of the pentagon. */
 extern OFD_Mesh OFD_one_twenty_cell() {
-   OFD_Mesh output = {.mesh = malloc(3240 * sizeof(OFD_Tetrahedron))};
+   OFD_Mesh output = {.mesh = malloc(3240 * sizeof(OFD_Tetrahedron)), .length = 3240};
    if (!output.mesh) { perror("Failed to allocate memory for mesh."); return output; }
 
    output.mesh[0] = (OFD_Tetrahedron){(OFD_Vector4) {0.13504551,-0.18587421,0.30075076,-0.9256146},(OFD_Vector4) {-0.13504551,-0.18587421,0.30075076,-0.9256146},(OFD_Vector4) {-0.21850823,-0.30075073,0.07099761,-0.9256146},(OFD_Vector4) {-0.3535537,-0.11487663,-0.070997655,-0.9256146}};
@@ -3491,7 +3491,7 @@ extern OFD_Mesh OFD_one_twenty_cell() {
 /** The 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
  * It is the dual-polytope of the 120-Cell. */
 extern OFD_Mesh OFD_six_hundred_cell() {
-   OFD_Mesh output = {.mesh = malloc(600 * sizeof(OFD_Tetrahedron))};
+   OFD_Mesh output = {.mesh = malloc(600 * sizeof(OFD_Tetrahedron)), .length = 600};
    if (!output.mesh) { perror("Failed to allocate memory for mesh."); return output; }
 
    output.mesh[0] = (OFD_Tetrahedron){(OFD_Vector4) {0.30901775,-0.17841148,0.12615596,-0.9256144},(OFD_Vector4) {-0.30901775,-0.17841148,0.12615596,-0.9256144},(OFD_Vector4) {-0.000000059604645,0,-0.37846786,-0.9256144},(OFD_Vector4) {-0.000000059604645,0.3568229,0.12615596,-0.9256144}};
