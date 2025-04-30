@@ -21,6 +21,9 @@
 
 #include "Open4D/OFD_physics.h"
 
+#define RED "\033[1;31m"
+#define RESET "\033[0m"
+
 
 const OFD_Transform OFD_DEFAULT_TRANSFORM = { 
    .position = {0, 0, 0, 0}, 
@@ -36,54 +39,11 @@ const OFD_Transform OFD_DEFAULT_TRANSFORM = {
 };
 
 
-/** @brief Offsets a vector by a given velocity and change in time. */
-static void offsetVector(OFD_Vector4* a, OFD_Vector4 velocity, double dt);
-
 void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt) {
-
-   // Step 1: Apply gravity
-   a->transform.velocity.y -= world.gravity;
-
-   // Step 2: Test for collisions.
-
-
-   // Step 3: Apply impulse forces
-
-   
-   // Step 4: Apply translational velocity
-
-   a->transform.center_of_mass.x += a->transform.velocity.x * dt;
-   a->transform.center_of_mass.y += a->transform.velocity.y * dt;
-   a->transform.center_of_mass.z += a->transform.velocity.z * dt;
-   a->transform.center_of_mass.w += a->transform.velocity.w * dt;
-   for (int i = 0; i < a->mesh.length; i++) {
-      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
-      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
-      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
-      offsetVector(&a->mesh.mesh[i].a, a->transform.velocity, dt);
-   }
-
-   // Step 5: Apply rotational velocity
-   for (int i = 0; i < a->mesh.length; i++) {
-      a->mesh.mesh[i].a = OFD_Vector4_Rotate(a->mesh.mesh[i].a, a->transform.center_of_mass, a->transform.rotation);
-      a->mesh.mesh[i].b = OFD_Vector4_Rotate(a->mesh.mesh[i].b, a->transform.center_of_mass, a->transform.rotation);
-      a->mesh.mesh[i].c = OFD_Vector4_Rotate(a->mesh.mesh[i].c, a->transform.center_of_mass, a->transform.rotation);
-      a->mesh.mesh[i].d = OFD_Vector4_Rotate(a->mesh.mesh[i].d, a->transform.center_of_mass, a->transform.rotation);
-   }
-
-}
-
-
-static void offsetVector(OFD_Vector4* a, OFD_Vector4 velocity, double dt) {
-   a->x += velocity.x * dt;
-   a->y += velocity.y * dt;
-   a->z += velocity.z * dt;
-   a->w += velocity.w * dt;
+   printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
 }
 
 
 void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]) {
-
-
-
+   printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
 }
