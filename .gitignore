@@ -58,3 +58,8 @@ build/
 cmake_install.cmake
 CMakeCache.txt
 Makefile
+
+# Developer or Platform
+
+.vscode
+.DS_Store
