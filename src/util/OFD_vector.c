@@ -21,6 +21,7 @@
 
 #include "Open4D/OFD_util.h"
 #include <math.h>
+#include <stdlib.h>
 
 
 double OFD_Vector2_Magnitude(OFD_Vector2 a) {
@@ -125,5 +126,5 @@ double OFD_Vector6_Magnitude(OFD_Vector6 a) {
 
 
 OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r) {
-    // TODO
+    return (OFD_Vector4){.x = 0, .y = 0, .z = 0, .w = 0};
 }

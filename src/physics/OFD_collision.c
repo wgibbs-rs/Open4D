@@ -21,15 +21,20 @@
 
 #include "Open4D/OFD_physics.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #define RED "\033[1;31m"
 #define RESET "\033[0m"
 
 /** @brief Finds collision points on a given mesh in an environment of other collidable structures. */
-extern OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]) {
+OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
+   return NULL;
 }
 
 /** @brief Tests if two tetrahedrons are colliding, and returns the collision point. */
-extern OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b) {
+OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
+   return NULL;
 }
