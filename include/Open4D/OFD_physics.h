@@ -22,15 +22,29 @@
 #ifndef OFD_physics_h_
 #define OFD_physics_h_
 
+
+
+#ifdef _WIN32
+  #ifdef PROJECT_BUILD
+    #define EXPORT __declspec(dllexport)
+  #else
+    #define EXPORT __declspec(dllimport)
+  #endif
+#else
+  #define EXPORT
+#endif
+
+
+
 #include <Open4D/OFD_physics.h>
 #include <Open4D/OFD_util.h>
 #include <Open4D/OFD_geometry.h>
 
 /** @brief Finds collision points on a given mesh in an environment of other collidable structures. */
-extern OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]);
+extern EXPORT OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]);
 
 /** @brief Tests if two tetrahedrons are colliding, and returns the collision point. */
-extern OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b);
+extern EXPORT OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b);
 
 
 
@@ -79,7 +93,7 @@ typedef struct {
 } OFD_Transform;
 
 
-extern const OFD_Transform OFD_DEFAULT_TRANSFORM;
+extern const EXPORT OFD_Transform OFD_DEFAULT_TRANSFORM;
 
 
 /** @brief Stored information on a given physics object. */
@@ -100,19 +114,19 @@ typedef struct {
  * 
  * - Gravitational Acceleration (g): 9.80665 (m/s^2)
  */
-static const OFD_WorldParameters OFD_DEFAULT_WORLD = { 9.80665 };
+static const EXPORT OFD_WorldParameters OFD_DEFAULT_WORLD = { 9.80665 };
 
 
 
 
 /** @brief Animates a rigidbody by a time interval (dt). */
-extern void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt);
+extern EXPORT void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt);
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-extern double OFD_UniformInertiaTensor(OFD_Mesh mesh);
+extern EXPORT double OFD_UniformInertiaTensor(OFD_Mesh mesh);
 
 /** @brief Calculates and updates the velocities of a given object based on a collision impulse. */
-extern void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]);
+extern EXPORT void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]);
 
 
 

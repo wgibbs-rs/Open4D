@@ -22,6 +22,21 @@
 #ifndef OPEN4D
 #define OPEN4D
 
+
+
+#ifdef _WIN32
+  #ifdef PROJECT_BUILD
+    #define EXPORT __declspec(dllexport)
+  #else
+    #define EXPORT __declspec(dllimport)
+  #endif
+#else
+  #define EXPORT
+#endif
+
+
+
+
 #include <Open4D/OFD_geometry.h>
 #include <Open4D/OFD_physics.h>
 #include <Open4D/OFD_util.h>

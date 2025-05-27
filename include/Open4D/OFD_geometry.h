@@ -23,11 +23,24 @@
 #define OFD_geometry_h_
 
 
+
+#ifdef _WIN32
+  #ifdef PROJECT_BUILD
+    #define EXPORT __declspec(dllexport)
+  #else
+    #define EXPORT __declspec(dllimport)
+  #endif
+#else
+  #define EXPORT
+#endif
+
+
+
 #include <Open4D/OFD_util.h>
 
 
 /** @brief Defines a tetrahedron made of four 4D points. Each point is stored as an OFD_Vector4
- * 
+ * s
  * Open4D geometry relies on objects made of tetrahedrons. This allows for simpler
  * slicing and physics. Geometry such as tesseracts, hyperdodecahedrons, and 
  * hyperspheres can be easily converted to tetrehedrons by taking each face and connecting it
@@ -62,7 +75,7 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w);
+extern EXPORT OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w);
 
 
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
@@ -73,15 +86,15 @@ extern OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w);
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OFD_Triangle3D *OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+extern EXPORT OFD_Triangle3D *OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
 
 /** @brief Returns a triangle's vertices' X positions. */
-extern double* OFD_TriangleToX(OFD_Triangle3D tri);
+extern EXPORT double* OFD_TriangleToX(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Y positions. */
-extern double* OFD_TriangleToY(OFD_Triangle3D tri);
+extern EXPORT double* OFD_TriangleToY(OFD_Triangle3D tri);
 /** @brief Returns a triangle's vertices' Z positions. */
-extern double* OFD_TriangleToZ(OFD_Triangle3D tri);
+extern EXPORT double* OFD_TriangleToZ(OFD_Triangle3D tri);
 
 
 // Define enum for the cells
@@ -96,7 +109,7 @@ enum OFD_Cell {
 
 
 // Defined to allow for the OFD_regular_mesh
-struct OFD_RegularMesh {
+struct EXPORT OFD_RegularMesh {
    int values[3];
 };
 
@@ -124,26 +137,26 @@ struct OFD_RegularMesh {
  * - SIX_HUNDRED_CELL: 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
  * It is the dual-polytope of the 120-Cell.
 */
-extern struct OFD_RegularMesh OFD_regular_mesh[6];
+extern struct EXPORT OFD_RegularMesh OFD_regular_mesh[6];
 
 
 /** The 5-Cell, also known as the 4-simplex, is the simplest structure defined in 
  * 4D space. It contains 5 cells.  */
-extern OFD_Mesh OFD_five_cell();
+extern EXPORT OFD_Mesh OFD_five_cell();
 /** The 8-Cell, also known as the Tesseract, is the 4D equivalent of a cube. */
-extern OFD_Mesh OFD_eight_cell();
+extern EXPORT OFD_Mesh OFD_eight_cell();
 /** The 16-Cell, also known as the hexadecachoron, is the simplest structure in 
  * 4D space that has no 3D or 2D equivalent. */
-extern OFD_Mesh OFD_sixteen_cell();
+extern EXPORT OFD_Mesh OFD_sixteen_cell();
 /** The 24-Cell, also known as the hyper-diamond, contains 24 octohedral cells. */
-extern OFD_Mesh OFD_twenty_four_cell();
+extern EXPORT OFD_Mesh OFD_twenty_four_cell();
 /** The 120-Cell, also known as the hyper-dodecahedron, contains 
  * 120 dodecahedral cells. It's the 4D equivalent of the dodecahedron, 
  * similar to how the regular dodecahedron is the 3D equivalent of the pentagon. */
-extern OFD_Mesh OFD_one_twenty_cell();
+extern EXPORT OFD_Mesh OFD_one_twenty_cell();
 /** The 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
  * It is the dual-polytope of the 120-Cell. */
-extern OFD_Mesh OFD_six_hundred_cell();
+extern EXPORT OFD_Mesh OFD_six_hundred_cell();
 
 
 #endif // OFD_geometry_h_
