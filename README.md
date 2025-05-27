@@ -1,6 +1,6 @@
 
 <div align="center">
- <img alt="The Official Logo for Open4D."src="img/Open4DText.png" width="75%" />
+ <img alt="Open4D Logo"src="img/Open4DText.png" width="75%" />
 </div>
 
 # Open4D
