@@ -79,8 +79,8 @@ jobs:
       with:
         name: Open4D-${{ matrix.os }}
         path: |
-          build/**/*.dll
-          build/**/*.so
-          build/**/*.dylib
-          build/**/*.lib
-          build/**/*.a
+          bin/**/*.dll
+          bin/**/*.so
+          bin/**/*.dylib
+          bin/**/*.lib
+          bin/**/*.a
