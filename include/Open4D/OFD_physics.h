@@ -25,14 +25,15 @@
 
 
 #ifdef _WIN32
-  #ifdef PROJECT_BUILD
-    #define EXPORT __declspec(dllexport)
+  #ifdef OPEN4D_EXPORTS
+    #define OPEN4D_API __declspec(dllexport)
   #else
-    #define EXPORT __declspec(dllimport)
+    #define OPEN4D_API __declspec(dllimport)
   #endif
 #else
-  #define EXPORT
+  #define OPEN4D_API __attribute__((visibility("default")))
 #endif
+
 
 
 
@@ -41,10 +42,10 @@
 #include <Open4D/OFD_geometry.h>
 
 /** @brief Finds collision points on a given mesh in an environment of other collidable structures. */
-extern EXPORT OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]);
+extern OPEN4D_API OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]);
 
 /** @brief Tests if two tetrahedrons are colliding, and returns the collision point. */
-extern EXPORT OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b);
+extern OPEN4D_API OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b);
 
 
 
@@ -93,7 +94,7 @@ typedef struct {
 } OFD_Transform;
 
 
-extern const EXPORT OFD_Transform OFD_DEFAULT_TRANSFORM;
+extern const OPEN4D_API OFD_Transform OFD_DEFAULT_TRANSFORM;
 
 
 /** @brief Stored information on a given physics object. */
@@ -114,19 +115,19 @@ typedef struct {
  * 
  * - Gravitational Acceleration (g): 9.80665 (m/s^2)
  */
-static const EXPORT OFD_WorldParameters OFD_DEFAULT_WORLD = { 9.80665 };
+static const OPEN4D_API OFD_WorldParameters OFD_DEFAULT_WORLD = { 9.80665 };
 
 
 
 
 /** @brief Animates a rigidbody by a time interval (dt). */
-extern EXPORT void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt);
+extern OPEN4D_API void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt);
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-extern EXPORT double OFD_UniformInertiaTensor(OFD_Mesh mesh);
+extern OPEN4D_API double OFD_UniformInertiaTensor(OFD_Mesh mesh);
 
 /** @brief Calculates and updates the velocities of a given object based on a collision impulse. */
-extern EXPORT void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]);
+extern OPEN4D_API void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]);
 
 
 

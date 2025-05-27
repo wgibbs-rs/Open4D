@@ -26,13 +26,13 @@
 
 
 #ifdef _WIN32
-  #ifdef PROJECT_BUILD
-    #define EXPORT __declspec(dllexport)
+  #ifdef OPEN4D_EXPORTS
+    #define OPEN4D_API __declspec(dllexport)
   #else
-    #define EXPORT __declspec(dllimport)
+    #define OPEN4D_API __declspec(dllimport)
   #endif
 #else
-  #define EXPORT
+  #define OPEN4D_API __attribute__((visibility("default")))
 #endif
 
 
@@ -53,19 +53,19 @@ typedef struct { double x, y, z, w; } OFD_Vector4;
 typedef struct { double xy, xz, xw, yz, yw, zw; } OFD_Vector6;
 
 /** @brief Calculates the magnitude of the provided vector. */
-extern EXPORT double OFD_Vector2_Magnitude(OFD_Vector2 a);
+extern OPEN4D_API double OFD_Vector2_Magnitude(OFD_Vector2 a);
 
 /** @brief Adds two 2D vectors together.*/
-extern EXPORT OFD_Vector2 OFD_Vector2_Add(OFD_Vector2 a, OFD_Vector2 b);
+extern OPEN4D_API OFD_Vector2 OFD_Vector2_Add(OFD_Vector2 a, OFD_Vector2 b);
 
 /** @brief Subtracts vector "b" from vector "a" */
-extern EXPORT OFD_Vector2 OFD_Vector2_Subtract(OFD_Vector2 a, OFD_Vector2 b);
+extern OPEN4D_API OFD_Vector2 OFD_Vector2_Subtract(OFD_Vector2 a, OFD_Vector2 b);
 
 /** @brief Calculates the dot product of two 2D vectors. */
-extern EXPORT double OFD_Vector2_Dot(OFD_Vector2 a, OFD_Vector2 b);
+extern OPEN4D_API double OFD_Vector2_Dot(OFD_Vector2 a, OFD_Vector2 b);
 
 /** @brief Calculates the magnitude of the provided vector. */
-extern EXPORT double OFD_Vector3_Magnitude(OFD_Vector3 a);
+extern OPEN4D_API double OFD_Vector3_Magnitude(OFD_Vector3 a);
 
 /** @brief Finds the cross product of two 3D vectors.
  * 
@@ -74,19 +74,19 @@ extern EXPORT double OFD_Vector3_Magnitude(OFD_Vector3 a);
  *  It also represents the area of the parallelogram formed by vectors "a" and "b"
  * 
  */
-extern EXPORT OFD_Vector3 OFD_Cross(OFD_Vector3 a, OFD_Vector3 b);
+extern OPEN4D_API OFD_Vector3 OFD_Cross(OFD_Vector3 a, OFD_Vector3 b);
 
 /** @brief Adds two 3D vectors together. */
-extern EXPORT OFD_Vector3 OFD_Vector3_Add(OFD_Vector3 a, OFD_Vector3 b);
+extern OPEN4D_API OFD_Vector3 OFD_Vector3_Add(OFD_Vector3 a, OFD_Vector3 b);
 
 /** @brief Subtracts vector "b" from vector "a" */
-extern EXPORT OFD_Vector3 OFD_Vector3_Subtract(OFD_Vector3 a, OFD_Vector3 b);
+extern OPEN4D_API OFD_Vector3 OFD_Vector3_Subtract(OFD_Vector3 a, OFD_Vector3 b);
 
 /** @brief Calculates the dot product of two 3D vectors. */
-extern EXPORT double OFD_Vector3_Dot(OFD_Vector3 a, OFD_Vector3 b);
+extern OPEN4D_API double OFD_Vector3_Dot(OFD_Vector3 a, OFD_Vector3 b);
 
 /** @brief Calculates the magnitude of the provided vector. */
-extern EXPORT double OFD_Vector4_Magnitude(OFD_Vector4 a);
+extern OPEN4D_API double OFD_Vector4_Magnitude(OFD_Vector4 a);
 
 /** @brief Finds the exterior product, or wedge product of two 4D vectors.
  * 
@@ -95,24 +95,24 @@ extern EXPORT double OFD_Vector4_Magnitude(OFD_Vector4 a);
  * can find the area of a parallelogram formed by vectors "a" and "b" in 4D space.
  * 
  */
-extern EXPORT OFD_Vector6 OFD_Exterior(OFD_Vector4 a, OFD_Vector4 b);
+extern OPEN4D_API OFD_Vector6 OFD_Exterior(OFD_Vector4 a, OFD_Vector4 b);
 
 /** @brief Adds two 4D vectors together. */
-extern EXPORT OFD_Vector4 OFD_Vector4_Add(OFD_Vector4 a, OFD_Vector4 b);
+extern OPEN4D_API OFD_Vector4 OFD_Vector4_Add(OFD_Vector4 a, OFD_Vector4 b);
 
 /** @brief Subtracts vector "b" from vector "a" */
-extern EXPORT OFD_Vector4 OFD_Vector4_Subtract(OFD_Vector4 a, OFD_Vector4 b);
+extern OPEN4D_API OFD_Vector4 OFD_Vector4_Subtract(OFD_Vector4 a, OFD_Vector4 b);
 
 /** @brief Calculates the dot product of two 4D vectors. */
-extern EXPORT double OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b);
+extern OPEN4D_API double OFD_Vector4_Dot(OFD_Vector4 a, OFD_Vector4 b);
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-extern EXPORT double OFD_Vector6_Magnitude(OFD_Vector6 a);
+extern OPEN4D_API double OFD_Vector6_Magnitude(OFD_Vector6 a);
 
 
 /** @brief Rotates a 4D vector around a central point. */
-extern EXPORT OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r);
+extern OPEN4D_API OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r);
 
 
 #endif // OFD_util_h_

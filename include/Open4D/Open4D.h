@@ -25,13 +25,13 @@
 
 
 #ifdef _WIN32
-  #ifdef PROJECT_BUILD
-    #define EXPORT __declspec(dllexport)
+  #ifdef OPEN4D_EXPORTS
+    #define OPEN4D_API __declspec(dllexport)
   #else
-    #define EXPORT __declspec(dllimport)
+    #define OPEN4D_API __declspec(dllimport)
   #endif
 #else
-  #define EXPORT
+  #define OPEN4D_API __attribute__((visibility("default")))
 #endif
 
 
