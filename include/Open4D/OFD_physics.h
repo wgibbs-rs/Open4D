@@ -115,7 +115,7 @@ typedef struct {
  * 
  * - Gravitational Acceleration (g): 9.80665 (m/s^2)
  */
-static const OPEN4D_API OFD_WorldParameters OFD_DEFAULT_WORLD = { 9.80665 };
+extern const OPEN4D_API OFD_WorldParameters OFD_DEFAULT_WORLD;
 
 
 

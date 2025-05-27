@@ -21,4 +21,10 @@ set_target_properties(Open4D PROPERTIES
 target_include_directories(Open4D PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 
+
 target_compile_definitions(Open4D PRIVATE OPEN4D_EXPORTS)
+
+if(NOT WIN32)
+  set(CMAKE_C_VISIBILITY_PRESET hidden)
+  set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
+endif()

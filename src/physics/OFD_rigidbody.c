@@ -41,6 +41,11 @@ const OFD_Transform OFD_DEFAULT_TRANSFORM = {
    .inertia = 10
 };
 
+const OFD_WorldParameters OFD_DEFAULT_WORLD = {
+   .gravity = 9.80665 // Standardized by nist.gov
+};
+
+
 
 void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
