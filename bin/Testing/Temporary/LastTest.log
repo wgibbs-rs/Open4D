@@ -1,0 +1,18 @@
+Start testing: Jun 11 19:23 EDT
+----------------------------------------------------------
+1/1 Testing: TestOpen4D
+1/1 Test: TestOpen4D
+Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/Open4DTestsExec"
+Directory: /Users/willgibb848/Projects/c-cpp/Open4D/bin
+"TestOpen4D" start time: Jun 11 19:23 EDT
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.68 sec
+----------------------------------------------------------
+Test Passed.
+"TestOpen4D" end time: Jun 11 19:23 EDT
+"TestOpen4D" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 11 19:23 EDT

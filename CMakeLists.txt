@@ -1,3 +1,5 @@
+
+
 cmake_minimum_required(VERSION 3.10)
 project(Open4D)
 
@@ -19,6 +21,21 @@ set_target_properties(Open4D PROPERTIES
 )
 
 target_include_directories(Open4D PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
+
+
+# Testing
+
+enable_testing()
+
+add_executable(Open4DTestsExec
+    ${PROJECT_SOURCE_DIR}/test/main.c
+)
+
+target_link_libraries(Open4DTestsExec PRIVATE Open4D)
+
+add_test(NAME TestOpen4D COMMAND Open4DTestsExec)
+
 
 
 

@@ -21,11 +21,11 @@
 
 #include <stdio.h>
 
-#include <Open4D/Open4D.h>
-
-#include <assert.h>
-
-
-int main() {
-    return 0;
+int OFD_Assert(int assertion, char* test_name) {
+    if (assertion) {
+        printf("%s: \x1b[32m[PASS]\x1b[0m\n", test_name);
+    } else {
+        printf("%s: \x1b[31m[FAIL]\x1b[0m\n", test_name);
+    }
+    return assertion;
 }
