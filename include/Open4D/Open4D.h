@@ -1,6 +1,6 @@
 /*
    Open4D
-   Copyright (c) 2025 William Gibbs & S.V
+   Copyright (c) 2025 William Gibbs
 
    This software is provided 'as-is', without any express or implied
    warranty. In no event will the authors be held liable for any damages
@@ -40,6 +40,8 @@
 #include <Open4D/OFD_geometry.h>
 #include <Open4D/OFD_physics.h>
 #include <Open4D/OFD_util.h>
+#include <Open4D/OFD_test.h>
+
 
 #endif // OPEN4D
 
