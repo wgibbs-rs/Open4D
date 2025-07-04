@@ -1,7 +1,7 @@
 
-<div align="center">
- <img alt="Open4D Logo"src="img/Open4DText.png" width="75%" />
-</div>
+![open4d logo](assets/Open4DText.png)
+
+![demo](assets/open4d_demo.gif)
 
 # Open4D
 Open4D is a lightweight library for simulating four dimensional physics and geometry. Built with usability in mind, Open4D aims to provide a toolkit for various usages of 4D physics. Regardless of needs, Open4D provides a robust toolkit for hobbiests, developers, and researchers exploring four dimensional space.
