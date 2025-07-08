@@ -33,31 +33,30 @@ struct OFD_RegularMesh OFD_regular_mesh[] = {
 };
 
 
-OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w) { 
-   OFD_Triangle3D *out = NULL;
-   int count = 0;
+OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w) { 
+   OFD_TriangleArray out;
 
    // Iterate through all tetrahedrons and add their slice to a mesh.
    for (int i = 0; i < mesh.length; i++) { 
-      OFD_Triangle3D *slice = OFD_SliceTetrahedron(mesh.mesh[i], w);
-      if (!slice) { continue; }
+      OFD_TriangleArray slice = OFD_SliceTetrahedron(mesh.mesh[i], w);
 
-      int length = sizeof(*slice) / sizeof(slice[0]);
+      if (slice.length == 0) continue;
 
-      // Extend 'out' to account for new OFD_Triangle3D's.
-      out = realloc(out, (count + length) * sizeof(OFD_Triangle3D));
+      out.triangles = realloc(out.triangles, (out.length + slice.length)  * sizeof(OFD_Triangle3D));
 
-      if (!out) { 
-         free(slice);
-         return NULL;
+      // If no "out" after realloc, then we free them both and return NULL.
+      if (!out.triangles) { 
+         free(slice.triangles);
+         free(out.triangles);
+         return (OFD_TriangleArray){0, NULL}; // And we'll need to indicate failure.
       }
 
-      out[count] = slice[0];
-      if (length == 2) {
-         out[count + 1] = slice[1];
-      }
-      count += length;
-      free(slice);
+      // out.length is still the old value, so we can use it to append out new triangles.
+      out.triangles[out.length] = slice.triangles[0];
+      if (slice.length == 2) out.triangles[out.length + 1] = slice.triangles[1];
+
+      out.length += slice.length;
+      free(slice.triangles);
    }
    return out;
 }

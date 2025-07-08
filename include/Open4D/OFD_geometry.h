@@ -54,8 +54,14 @@ typedef struct {
 
 /** @brief Defines a triangle in 3D space. */
 typedef struct {
-  OFD_Vector3 a, b, c;
+   OFD_Vector3 a, b, c;
 } OFD_Triangle3D;
+
+/** @brief Defines an array of Triangle3D's. */
+typedef struct {
+   int length;
+   OFD_Triangle3D* triangles;
+} OFD_TriangleArray;
 
 
 
@@ -75,7 +81,7 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OPEN4D_API OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w);
+extern OPEN4D_API OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
 
 
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
@@ -86,15 +92,7 @@ extern OPEN4D_API OFD_Triangle3D *OFD_SliceMesh(OFD_Mesh mesh, double w);
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OPEN4D_API OFD_Triangle3D *OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
-
-
-/** @brief Returns a triangle's vertices' X positions. */
-extern OPEN4D_API double* OFD_TriangleToX(OFD_Triangle3D tri);
-/** @brief Returns a triangle's vertices' Y positions. */
-extern OPEN4D_API double* OFD_TriangleToY(OFD_Triangle3D tri);
-/** @brief Returns a triangle's vertices' Z positions. */
-extern OPEN4D_API double* OFD_TriangleToZ(OFD_Triangle3D tri);
+extern OPEN4D_API OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
 
 // Define enum for the cells

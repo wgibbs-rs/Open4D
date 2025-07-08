@@ -20,12 +20,15 @@
 */
 
 #include <stdio.h>
+#include <assert.h>
 
-int OFD_Assert(int assertion, char* test_name) {
-    if (assertion) {
+/** @brief Makes an assertion and reports the result. */
+static int OFD_Assert(const int assertion, const char* test_name) {
+    if (assertion)
         printf("%s: \x1b[32m[PASS]\x1b[0m\n", test_name);
-    } else {
+    else 
         printf("%s: \x1b[31m[FAIL]\x1b[0m\n", test_name);
-    }
-    return assertion;
+    fflush(stdout);
+    assert(assertion);
+    return 0;
 }

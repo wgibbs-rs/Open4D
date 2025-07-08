@@ -34,14 +34,10 @@
   #define OPEN4D_API __attribute__((visibility("default")))
 #endif
 
-
-
-
 #include <Open4D/OFD_geometry.h>
 #include <Open4D/OFD_physics.h>
 #include <Open4D/OFD_util.h>
 #include <Open4D/OFD_test.h>
-
 
 #endif // OPEN4D
 
