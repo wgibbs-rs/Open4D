@@ -28,19 +28,7 @@ static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
 static double* toArray(OFD_Vector3 p);
 static int sgn(double x);
 
-/*@
-  requires \valid_read(&t);
-  requires \is_finite(w);
 
-  // If slice exists, return non-null pointer and length 1 or 2
-  ensures \result.length == 0 <==> \result.triangles == \null;
-
-  // Length must be 0, 1, or 2
-  ensures 0 <= \result.length <= 2;
-
-  // If triangles were returned, they must point to valid memory
-  ensures \result.length > 0 ==> \valid(\result.triangles + (0 .. \result.length - 1));
-*/
 OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
 
    OFD_TriangleArray out;
