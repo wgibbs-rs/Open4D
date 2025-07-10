@@ -22,18 +22,6 @@
 #ifndef OPEN4D
 #define OPEN4D
 
-
-
-#ifdef _WIN32
-  #ifdef OPEN4D_EXPORTS
-    #define OPEN4D_API __declspec(dllexport)
-  #else
-    #define OPEN4D_API __declspec(dllimport)
-  #endif
-#else
-  #define OPEN4D_API __attribute__((visibility("default")))
-#endif
-
 #include <Open4D/OFD_geometry.h>
 #include <Open4D/OFD_physics.h>
 #include <Open4D/OFD_util.h>

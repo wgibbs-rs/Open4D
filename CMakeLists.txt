@@ -28,14 +28,11 @@ target_include_directories(Open4D PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 enable_testing()
 
-add_executable(Open4DTestsExec
-    ${PROJECT_SOURCE_DIR}/test/main.c
-)
+# Add all individual unit tests
 
-target_link_libraries(Open4DTestsExec PRIVATE Open4D)
-
-add_test(NAME TestOpen4D COMMAND Open4DTestsExec)
-
+add_executable(test_util tests/test_util.c)
+target_link_libraries(test_util Open4D)
+add_test(NAME TestUtilities COMMAND test_util)
 
 
 

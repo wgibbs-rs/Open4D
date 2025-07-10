@@ -1,18 +1,81 @@
-Start testing: Jul 07 20:03 EDT
+Start testing: Jul 09 23:06 EDT
 ----------------------------------------------------------
-1/1 Testing: TestOpen4D
-1/1 Test: TestOpen4D
-Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/Open4DTestsExec"
+1/1 Testing: TestUtilities
+1/1 Test: TestUtilities
+Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/test_util"
 Directory: /Users/willgibb848/Projects/c-cpp/Open4D/bin
-"TestOpen4D" start time: Jul 07 20:03 EDT
+"TestUtilities" start time: Jul 09 23:06 EDT
 Output:
 ----------------------------------------------------------
+OFD_Vector2_Magnitude #1: [32m[PASS][0m
+OFD_Vector2_Magnitude #2: [32m[PASS][0m
+OFD_Vector2_Magnitude #3: [32m[PASS][0m
+OFD_Vector2_Add #1 (x): [32m[PASS][0m
+OFD_Vector2_Add #1 (y): [32m[PASS][0m
+OFD_Vector2_Add #2 (x): [32m[PASS][0m
+OFD_Vector2_Add #2 (y): [32m[PASS][0m
+OFD_Vector2_Add #1 (x): [32m[PASS][0m
+OFD_Vector2_Add #1 (y): [32m[PASS][0m
+OFD_Vector2_Add #2 (x): [32m[PASS][0m
+OFD_Vector2_Add #2 (y): [32m[PASS][0m
+OFD_Vector2_Dot #1: [32m[PASS][0m
+OFD_Vector2_Dot #2: [32m[PASS][0m
+OFD_Vector3_Magnitude #1: [32m[PASS][0m
+OFD_Vector3_Magnitude #2: [32m[PASS][0m
+OFD_Vector3_Magnitude #3: [32m[PASS][0m
+OFD_Vector3_Cross #1 (x): [32m[PASS][0m
+OFD_Vector3_Cross #1 (y): [32m[PASS][0m
+OFD_Vector3_Cross #1 (z): [32m[PASS][0m
+OFD_Vector3_Cross #2 (x): [32m[PASS][0m
+OFD_Vector3_Cross #2 (y): [32m[PASS][0m
+OFD_Vector3_Cross #2 (z): [32m[PASS][0m
+OFD_Vector3_Add #1 (x): [32m[PASS][0m
+OFD_Vector3_Add #1 (y): [32m[PASS][0m
+OFD_Vector3_Add #1 (z): [32m[PASS][0m
+OFD_Vector3_Add #2 (x): [32m[PASS][0m
+OFD_Vector3_Add #2 (y): [32m[PASS][0m
+OFD_Vector3_Add #2 (z): [32m[PASS][0m
+OFD_Vector3_Subtract #1 (x): [32m[PASS][0m
+OFD_Vector3_Subtract #1 (y): [32m[PASS][0m
+OFD_Vector3_Subtract #1 (z): [32m[PASS][0m
+OFD_Vector3_Subtract #2 (x): [32m[PASS][0m
+OFD_Vector3_Subtract #2 (y): [32m[PASS][0m
+OFD_Vector3_Subtract #2 (z): [32m[PASS][0m
+OFD_Vector3_Dot #1: [32m[PASS][0m
+OFD_Vector3_Dot #2: [32m[PASS][0m
+OFD_Vector3_Dot #3: [32m[PASS][0m
+OFD_Vector4_Magnitude #1: [32m[PASS][0m
+OFD_Vector4_Magnitude #2: [32m[PASS][0m
+OFD_Vector4_Magnitude #3: [32m[PASS][0m
+OFD_Exterior #1: [32m[PASS][0m
+OFD_Exterior #2: [32m[PASS][0m
+OFD_Vector4_Add #1 (x): [32m[PASS][0m
+OFD_Vector4_Add #1 (y): [32m[PASS][0m
+OFD_Vector4_Add #1 (z): [32m[PASS][0m
+OFD_Vector4_Add #1 (w): [32m[PASS][0m
+OFD_Vector4_Add #2 (x): [32m[PASS][0m
+OFD_Vector4_Add #2 (y): [32m[PASS][0m
+OFD_Vector4_Add #2 (z): [32m[PASS][0m
+OFD_Vector4_Add #2 (w): [32m[PASS][0m
+OFD_Vector4_Subtract #1 (x): [32m[PASS][0m
+OFD_Vector4_Subtract #1 (y): [32m[PASS][0m
+OFD_Vector4_Subtract #1 (z): [32m[PASS][0m
+OFD_Vector4_Subtract #1 (w): [32m[PASS][0m
+OFD_Vector4_Subtract #2 (x): [32m[PASS][0m
+OFD_Vector4_Subtract #2 (y): [32m[PASS][0m
+OFD_Vector4_Subtract #2 (z): [32m[PASS][0m
+OFD_Vector4_Subtract #2 (w): [32m[PASS][0m
+OFD_Vector4_Dot #1: [32m[PASS][0m
+OFD_Vector4_Dot #2: [32m[PASS][0m
+OFD_Vector4_Dot #3: [32m[PASS][0m
+OFD_Vector6_Magnitude #1: [32m[PASS][0m
+OFD_Vector6_Magnitude #2: [32m[PASS][0m
 <end of output>
-Test time =   1.03 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"TestOpen4D" end time: Jul 07 20:03 EDT
-"TestOpen4D" time elapsed: 00:00:01
+"TestUtilities" end time: Jul 09 23:06 EDT
+"TestUtilities" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jul 07 20:03 EDT
+End testing: Jul 09 23:06 EDT
