@@ -24,12 +24,12 @@
 #include <stdio.h>
 
 static OFD_Triangle3D triangleFromPoints(OFD_Vector3 a, OFD_Vector3 b, OFD_Vector3 c);
-static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
+static OFD_Vector3 inter(const OFD_Vector4 a, const OFD_Vector4 b, const double w);
 static double* toArray(OFD_Vector3 p);
-static int sgn(double x);
+static int sgn(const double x);
 
 
-OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
+OFD_TriangleArray OFD_SliceTetrahedron(const OFD_Tetrahedron t, const double w) {
 
    OFD_TriangleArray out;
 
@@ -101,7 +101,7 @@ OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
    
 }
 
-static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
+static OFD_Vector3 inter(const OFD_Vector4 a, const OFD_Vector4 b, const double w) {
    double percent = (w - a.w) / (b.w - a.w);
    return (OFD_Vector3){
       percent * (b.x - a.x) + a.x,

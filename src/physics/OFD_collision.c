@@ -28,13 +28,13 @@
 #define RESET "\033[0m"
 
 /** @brief Finds collision points on a given mesh in an environment of other collidable structures. */
-OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]) {
+OFD_Vector4* OFD_GetCollisionPoints(const OFD_Mesh mesh, const OFD_Mesh* env) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
    return NULL;
 }
 
 /** @brief Tests if two tetrahedrons are colliding, and returns the collision point. */
-OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b) {
+OFD_Vector4* OFD_TestTetrahedronCollision(const OFD_Tetrahedron a, const OFD_Tetrahedron b) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
    return NULL;
 }

@@ -42,7 +42,7 @@
 #include <Open4D/OFD_geometry.h>
 
 /** @brief Finds collision points on a given mesh in an environment of other collidable structures. */
-extern OPEN4D_API OFD_Vector4* OFD_GetCollisionPoints(OFD_Mesh mesh, OFD_Mesh env[]);
+extern OPEN4D_API OFD_Vector4* OFD_GetCollisionPoints(const OFD_Mesh mesh, const OFD_Mesh* env);
 
 /** @brief Tests if two tetrahedrons are colliding, and returns the collision point. */
 extern OPEN4D_API OFD_Vector4* OFD_TestTetrahedronCollision(OFD_Tetrahedron a, OFD_Tetrahedron b);
@@ -121,13 +121,13 @@ extern const OPEN4D_API OFD_WorldParameters OFD_DEFAULT_WORLD;
 
 
 /** @brief Animates a rigidbody by a time interval (dt). */
-extern OPEN4D_API void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt);
+extern OPEN4D_API void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh* env, const int envLength, const OFD_WorldParameters world, const double dt);
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-extern OPEN4D_API double OFD_UniformInertiaTensor(OFD_Mesh mesh);
+extern OPEN4D_API double OFD_UniformInertiaTensor(const OFD_Mesh mesh);
 
 /** @brief Calculates and updates the velocities of a given object based on a collision impulse. */
-extern OPEN4D_API void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]);
+extern OPEN4D_API void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, const OFD_Vector4* collisionsPoints, const int collisionPointsLength);
 
 
 

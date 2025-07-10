@@ -81,7 +81,7 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OPEN4D_API OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
+extern OPEN4D_API OFD_TriangleArray OFD_SliceMesh(const OFD_Mesh mesh, const double w);
 
 
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
@@ -92,7 +92,7 @@ extern OPEN4D_API OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OPEN4D_API OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+extern OPEN4D_API OFD_TriangleArray OFD_SliceTetrahedron(const OFD_Tetrahedron a, const double w);
 
 
 // Define enum for the cells

@@ -33,7 +33,7 @@ struct OFD_RegularMesh OFD_regular_mesh[] = {
 };
 
 
-OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w) { 
+OFD_TriangleArray OFD_SliceMesh(const OFD_Mesh mesh, const double w) { 
    OFD_TriangleArray out;
 
    // Iterate through all tetrahedrons and add their slice to a mesh.
