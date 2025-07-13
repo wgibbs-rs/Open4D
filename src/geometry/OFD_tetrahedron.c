@@ -23,10 +23,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static OFD_Triangle3D triangleFromPoints(OFD_Vector3 a, OFD_Vector3 b, OFD_Vector3 c);
-static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
-static double* toArray(OFD_Vector3 p);
-static int sgn(double x);
+
+#ifdef TESTING
+#define TEST_STATIC
+#else
+#define TEST_STATIC static
+#endif
+
+// If testing, this is not static, and is defined in OFD_geometry, otherwise it is internal.
+TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
+TEST_STATIC int sgn(double x);
 
 
 OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
@@ -45,24 +51,28 @@ OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
    // In this case, we can just return a single triangle where all three opposing 
    // points connect to the other.
    if (sa != sb && sa != sc && sa != sd) {
+      out.length = 1;
       out.triangles = malloc(sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       *out.triangles = (OFD_Triangle3D){inter(t.a, t.b, w), inter(t.a, t.c, w), inter(t.a, t.d, w)};
       return out;
    }
    if (sb != sa && sb != sc && sb != sd) {
+      out.length = 1;
       out.triangles = malloc(sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       *out.triangles = (OFD_Triangle3D){inter(t.b, t.a, w), inter(t.b, t.c, w), inter(t.b, t.d, w)};
       return out;
    }
    if (sc != sa && sc != sb && sc != sd) {
+      out.length = 1;
       out.triangles = malloc(sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       *out.triangles = (OFD_Triangle3D){inter(t.c, t.a, w), inter(t.c, t.b, w), inter(t.c, t.d, w)};
       return out;
    }
    if (sd != sa && sd != sb && sd != sc) {
+      out.length = 1;
       out.triangles = malloc(sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       *out.triangles = (OFD_Triangle3D){inter(t.d, t.a, w), inter(t.d, t.b, w), inter(t.d, t.c, w)};
@@ -72,6 +82,7 @@ OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
    // Finally, we'll test for cases where two points are on each side.
    // In this case, we return two triangles.
    if (sa == sb && sc == sd) { // A and B are opposite to C and D
+      out.length = 2;
       out.triangles = malloc(2 * sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       out.triangles[0] = (OFD_Triangle3D){inter(t.a, t.c, w), inter(t.a, t.d, w), inter(t.b, t.c, w)};
@@ -79,6 +90,7 @@ OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
       return out;
    }
    if (sa == sc && sb == sd) { // A and C are opposite to B and D
+      out.length = 2;
       out.triangles = malloc(2 * sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       out.triangles[0] = (OFD_Triangle3D){inter(t.a, t.b, w), inter(t.a, t.d, w), inter(t.c, t.b, w)};
@@ -86,6 +98,7 @@ OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
       return out;
    }
    if (sa == sd && sb == sc) { // A and D are opposite to B and C
+      out.length = 2;
       out.triangles = malloc(2 * sizeof(OFD_Triangle3D));
       if (!out.triangles) return (OFD_TriangleArray){0, NULL};
       out.triangles[0] = (OFD_Triangle3D){inter(t.a, t.b, w), inter(t.a, t.c, w), inter(t.d, t.b, w)};
@@ -93,15 +106,12 @@ OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
       return out;
    }
 
-
-   // If all else fails, we'll need to print this to notify the user that some error
-   // must have occurred. Reaching this point is normally impossible.
-   printf("When slicing a mesh, no result was reached. Returning NULL.\n\nPlease report this error to the official Open4D Github at https://github.com/Open4D-Official/Open4D.");
    return (OFD_TriangleArray){0, NULL};
-   
 }
 
-static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
+
+TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
+   if (a.w == b.w) return (OFD_Vector3){0, 0, 0};
    double percent = (w - a.w) / (b.w - a.w);
    return (OFD_Vector3){
       percent * (b.x - a.x) + a.x,
@@ -111,14 +121,4 @@ static OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
 }
 
 
-
-static OFD_Triangle3D triangleFromPoints(OFD_Vector3 a, OFD_Vector3 b, OFD_Vector3 c) {
-   return (OFD_Triangle3D) {a, b, c};
-}
-
-
-static int sgn(double x) {
-   if (x > 0) return 1;
-   if (x < 0) return -1;
-   return 0;
-}
+TEST_STATIC int sgn(double x) { return (x > 0) - (x < 0); }

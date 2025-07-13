@@ -3,4 +3,6 @@ RunOpen4DTests 5 0
 test_vectors 0 0
 TestOpen4D 11 0.000216186
 TestUtilities 27 0.00562503
+TestMathematics 74 0.00536787
+TestGeometry 32 0.00364832
 ---

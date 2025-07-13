@@ -1,10 +1,10 @@
-Start testing: Jul 09 23:06 EDT
+Start testing: Jul 13 16:07 CDT
 ----------------------------------------------------------
-1/1 Testing: TestUtilities
-1/1 Test: TestUtilities
-Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/test_util"
+1/2 Testing: TestMathematics
+1/2 Test: TestMathematics
+Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/test_math"
 Directory: /Users/willgibb848/Projects/c-cpp/Open4D/bin
-"TestUtilities" start time: Jul 09 23:06 EDT
+"TestMathematics" start time: Jul 13 16:07 CDT
 Output:
 ----------------------------------------------------------
 OFD_Vector2_Magnitude #1: [32m[PASS][0m
@@ -71,11 +71,40 @@ OFD_Vector4_Dot #3: [32m[PASS][0m
 OFD_Vector6_Magnitude #1: [32m[PASS][0m
 OFD_Vector6_Magnitude #2: [32m[PASS][0m
 <end of output>
-Test time =   0.15 sec
+Test time =   0.40 sec
 ----------------------------------------------------------
 Test Passed.
-"TestUtilities" end time: Jul 09 23:06 EDT
-"TestUtilities" time elapsed: 00:00:00
+"TestMathematics" end time: Jul 13 16:07 CDT
+"TestMathematics" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jul 09 23:06 EDT
+2/2 Testing: TestGeometry
+2/2 Test: TestGeometry
+Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/test_geometry"
+Directory: /Users/willgibb848/Projects/c-cpp/Open4D/bin
+"TestGeometry" start time: Jul 13 16:07 CDT
+Output:
+----------------------------------------------------------
+inter #1: [32m[PASS][0m
+inter #2: [32m[PASS][0m
+inter #3: [32m[PASS][0m
+inter #4: [32m[PASS][0m
+sgn #1: [32m[PASS][0m
+sgn #2: [32m[PASS][0m
+sgn #3: [32m[PASS][0m
+sgn #4: [32m[PASS][0m
+sgn #5: [32m[PASS][0m
+sgn #6: [32m[PASS][0m
+OFD_SliceTetrahedron #1 (length): [32m[PASS][0m
+OFD_SliceTetrahedron #1 (a): [32m[PASS][0m
+OFD_SliceTetrahedron #1 (b): [32m[PASS][0m
+OFD_SliceTetrahedron #1 (c): [32m[PASS][0m
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Passed.
+"TestGeometry" end time: Jul 13 16:07 CDT
+"TestGeometry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 13 16:07 CDT

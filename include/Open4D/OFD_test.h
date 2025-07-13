@@ -21,14 +21,30 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <math.h>
 
 /** @brief Makes an assertion and reports the result. */
-static int OFD_Assert(const int assertion, const char* test_name) {
+static int OFD_Assert(const int assertion, const char* test_name, ...) {
+    va_list args;
+    va_start(args, test_name);
+    vprintf(test_name, args);
     if (assertion)
-        printf("%s: \x1b[32m[PASS]\x1b[0m\n", test_name);
+        printf(": \x1b[32m[PASS]\x1b[0m\n");
     else 
-        printf("%s: \x1b[31m[FAIL]\x1b[0m\n", test_name);
+        printf(": \x1b[31m[FAIL]\x1b[0m\n");
+    va_end(args);
     fflush(stdout);
     assert(assertion);
     return 0;
+}
+
+
+// Returns true if a and b are *nearly* equal to each other, accounting for truncation.
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((pure, always_inline))
+#endif
+static inline int neareq(double a, double b) {
+    return fabs(a - b) < 1e-9;
 }
