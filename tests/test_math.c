@@ -352,11 +352,6 @@ void test_vector4_dot() {
 }
 
 
-
-void test_vector4_rotate() { /* TODO */ }
-
-
-
 void test_vector6_magnitude() {
 
    OFD_Vector6 a = (OFD_Vector6){1, 2, 3, 4, 5, 6};
@@ -376,6 +371,35 @@ void test_vector6_magnitude() {
 
 }
 
+
+
+
+void test_vector4_rotate() {
+
+   OFD_Vector4 _p = OFD_Vector4_Rotate(
+      (OFD_Vector4){1, 0, 0, 0}, 
+      (OFD_Vector4){0,0,0,0}, 
+      (OFD_Vector6){0, 0, 0, 0, 0, 90}
+   );
+
+   OFD_Assert(
+      neareq(_p.x, 0) && neareq(_p.y, 1) && neareq(_p.z, 0) && neareq(_p.w, 0),
+      "OFD_Vector4_Rotate #1"
+   );
+
+
+   _p = OFD_Vector4_Rotate(
+      (OFD_Vector4){0, 0, 0, 0}, 
+      (OFD_Vector4){0,0,0,0}, 
+      (OFD_Vector6){0, 0, 0, 0, 0, 90}
+   );
+
+   OFD_Assert(
+      neareq(_p.x, 0) && neareq(_p.y, 0) && neareq(_p.z, 0) && neareq(_p.w, 0),
+      "OFD_Vector4_Rotate #2"
+   );
+
+}
 
 
 int main() {

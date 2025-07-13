@@ -1,10 +1,10 @@
-Start testing: Jul 13 16:07 CDT
+Start testing: Jul 13 17:35 CDT
 ----------------------------------------------------------
 1/2 Testing: TestMathematics
 1/2 Test: TestMathematics
 Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/test_math"
 Directory: /Users/willgibb848/Projects/c-cpp/Open4D/bin
-"TestMathematics" start time: Jul 13 16:07 CDT
+"TestMathematics" start time: Jul 13 17:35 CDT
 Output:
 ----------------------------------------------------------
 OFD_Vector2_Magnitude #1: [32m[PASS][0m
@@ -68,13 +68,15 @@ OFD_Vector4_Subtract #2 (w): [32m[PASS][0m
 OFD_Vector4_Dot #1: [32m[PASS][0m
 OFD_Vector4_Dot #2: [32m[PASS][0m
 OFD_Vector4_Dot #3: [32m[PASS][0m
+OFD_Vector4_Rotate #1: [32m[PASS][0m
+OFD_Vector4_Rotate #2: [32m[PASS][0m
 OFD_Vector6_Magnitude #1: [32m[PASS][0m
 OFD_Vector6_Magnitude #2: [32m[PASS][0m
 <end of output>
-Test time =   0.40 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"TestMathematics" end time: Jul 13 16:07 CDT
+"TestMathematics" end time: Jul 13 17:35 CDT
 "TestMathematics" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -82,7 +84,7 @@ Test Passed.
 2/2 Test: TestGeometry
 Command: "/Users/willgibb848/Projects/c-cpp/Open4D/bin/test_geometry"
 Directory: /Users/willgibb848/Projects/c-cpp/Open4D/bin
-"TestGeometry" start time: Jul 13 16:07 CDT
+"TestGeometry" start time: Jul 13 17:35 CDT
 Output:
 ----------------------------------------------------------
 inter #1: [32m[PASS][0m
@@ -100,11 +102,11 @@ OFD_SliceTetrahedron #1 (a): [32m[PASS][0m
 OFD_SliceTetrahedron #1 (b): [32m[PASS][0m
 OFD_SliceTetrahedron #1 (c): [32m[PASS][0m
 <end of output>
-Test time =   0.12 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"TestGeometry" end time: Jul 13 16:07 CDT
+"TestGeometry" end time: Jul 13 17:35 CDT
 "TestGeometry" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jul 13 16:07 CDT
+End testing: Jul 13 17:35 CDT
