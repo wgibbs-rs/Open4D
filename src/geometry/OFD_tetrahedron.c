@@ -35,7 +35,7 @@ TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
 TEST_STATIC int sgn(double x);
 
 
-OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron t, double w) {
+OFD_TriangleArray OFD_SliceTetrahedron(const OFD_Tetrahedron t, const double w) {
 
    OFD_TriangleArray out;
 

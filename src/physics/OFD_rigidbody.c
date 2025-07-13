@@ -47,11 +47,11 @@ const OFD_WorldParameters OFD_DEFAULT_WORLD = {
 
 
 
-void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh other[], OFD_WorldParameters world, double dt) {
+void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh* env, const int envLength, const OFD_WorldParameters world, const double dt) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
 }
 
 
-void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, OFD_Vector4 collisionsPoint[]) {
+void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, const OFD_Vector4* collisionsPoints, const int collisionPointsLength) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
 }
