@@ -1,5 +1,0 @@
-Open4D_test 3 0.117273
-RunOpen4DTests 5 0
-test_vectors 0 0
-TestOpen4D 11 0.0648366
----
