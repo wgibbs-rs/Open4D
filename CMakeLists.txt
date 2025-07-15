@@ -13,7 +13,6 @@ add_library(Open4D SHARED
     ${PROJECT_SOURCE_DIR}/src/geometry/OFD_primitive.c
     ${PROJECT_SOURCE_DIR}/src/physics/OFD_collision.c
     ${PROJECT_SOURCE_DIR}/src/physics/OFD_rigidbody.c
-    ${PROJECT_SOURCE_DIR}/src/util/OFD_vector.c
 )
 
 set_target_properties(Open4D PROPERTIES

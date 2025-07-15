@@ -36,7 +36,7 @@
 
 
 
-#include <Open4D/OFD_util.h>
+#include <Open4D/OFD_math.h>
 
 
 /** @brief Defines a tetrahedron made of four 4D points. Each point is stored as an OFD_Vector4
