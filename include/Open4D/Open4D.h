@@ -19,13 +19,16 @@
    3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <stdio.h>
+#ifndef OPEN4D
+#define OPEN4D
 
-#include <Open4D/Open4D.h>
+#include <Open4D/OFD_geometry.h>
+#include <Open4D/OFD_physics.h>
+#include <Open4D/OFD_util.h>
 
-#include <assert.h>
+#ifdef TESTING 
+#include <Open4D/OFD_test.h>
+#endif
 
+#endif // OPEN4D
 
-int main() {
-    return 0;
-}

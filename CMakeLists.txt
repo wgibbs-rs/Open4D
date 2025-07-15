@@ -25,17 +25,21 @@ target_include_directories(Open4D PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 
 # Testing
+option(TEST "Build unit tests" OFF)
 
-enable_testing()
+if(TEST)
+    enable_testing()
+    target_compile_definitions(Open4D PUBLIC TESTING)
 
-add_executable(Open4DTestsExec
-    ${PROJECT_SOURCE_DIR}/test/main.c
-)
+    add_executable(test_math tests/test_math.c)
+    target_link_libraries(test_math Open4D)
+    add_test(NAME TestMathematics COMMAND test_math)
 
-target_link_libraries(Open4DTestsExec PRIVATE Open4D)
+    add_executable(test_geometry tests/test_geometry.c)
+    target_link_libraries(test_geometry Open4D)
+    add_test(NAME TestGeometry COMMAND test_geometry)
 
-add_test(NAME TestOpen4D COMMAND Open4DTestsExec)
-
+endif()
 
 
 

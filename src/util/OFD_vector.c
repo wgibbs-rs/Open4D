@@ -124,7 +124,22 @@ double OFD_Vector6_Magnitude(OFD_Vector6 a) {
     return sqrt(a.xy * a.xy + a.xz * a.xz + a.xw * a.xw + a.yz * a.yz + a.yw * a.yw + a.zw * a.zw);
 }
 
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((const, always_inline))
+#endif
+inline double toRadians(double a) {
+    return a * 0.0174532925199; // a * π / 180
+}
 
 OFD_Vector4 OFD_Vector4_Rotate(OFD_Vector4 a, OFD_Vector4 c, OFD_Vector6 r) {
-    return (OFD_Vector4){.x = 0, .y = 0, .z = 0, .w = 0};
+    double sXY = sin(toRadians(r.xy)); double sXZ = sin(toRadians(r.xz)); double sXW = sin(toRadians(r.xw)); double sYZ = sin(toRadians(r.yz)); double sYW = sin(toRadians(r.yw)); double sZW = sin(toRadians(r.zw));
+    double cXY = cos(toRadians(r.xy)); double cXZ = cos(toRadians(r.xz)); double cXW = cos(toRadians(r.xw)); double cYZ = cos(toRadians(r.yz)); double cYW = cos(toRadians(r.yw)); double cZW = cos(toRadians(r.zw));
+
+    return (OFD_Vector4){
+        cYZ * cYW * cZW * (a.x - c.x) + (cXZ * (-cXW * sZW - sXW * sYW * cZW) - sXZ * sYZ * cYW * cZW) * (a.y - c.y) + (cXY * (sXW * sZW - cXW * sYW * cZW) + sXY * (sXZ * (cXW * sZW + sXW * sYW * cZW) - cXZ * sYZ * cYW * cZW)) * (a.z- c.z) + (-sXY * (sXW * sZW - cXW * sYW * cZW) + cXY * (sXZ * (cXW * sZW + sXW * sYW * cZW) - cXZ * sYZ * cYW * cZW)) * (a.w - c.w) + c.x, 
+        cYZ * cYW * sZW * (a.x - c.x) + (cXZ * (cXW * cZW - sXW * sYW * sZW) - sXZ * sYZ * cYW * sZW) * (a.y - c.y) + (cXY * (-sXW * cZW - cXW * sYW * sZW) + sXY * (-sXZ * (cXW * cZW - sXW * sYW * sZW) - cXZ * sYZ * cYW * sZW)) * (a.z- c.z) + (-sXY * (-sXW * cZW - cXW * sYW * sZW) + cXY * (-sXZ * (cXW * cZW - sXW * sYW * sZW) - cXZ * sYZ * cYW * sZW)) * (a.w - c.w) + c.y,
+        (cYZ * sYW) * (a.x - c.x) + (cXZ * sXW * cYW - sXZ * sYZ * sYW) * (a.y - c.y) + (cXY * cXW * cYW + sXY * (-sXZ * sXW * cYW - cXZ * sYZ * sYW)) * (a.z- c.z) + (-sXY * cXW * cYW + cXY * (-sXZ * sXW * cYW - cXZ * sYZ * sYW)) * (a.w - c.w) + c.z,
+        (sYZ) * (a.x - c.x) + (sXZ * cYZ) * (a.y - c.y) + (sXY * cXZ * cYZ) * (a.z- c.z) + (cXY * cXZ * cYZ) * (a.w - c.w) + c.w 
+    };
+    
 }
