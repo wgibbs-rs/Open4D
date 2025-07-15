@@ -24,17 +24,6 @@
 
 
 
-#ifdef _WIN32
-  #ifdef OPEN4D_EXPORTS
-    #define OPEN4D_API __declspec(dllexport)
-  #else
-    #define OPEN4D_API __declspec(dllimport)
-  #endif
-#else
-  #define OPEN4D_API __attribute__((visibility("default")))
-#endif
-
-
 
 #include <Open4D/OFD_math.h>
 
@@ -81,7 +70,7 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OPEN4D_API OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
+extern OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
 
 
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
@@ -92,7 +81,7 @@ extern OPEN4D_API OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OPEN4D_API OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+extern OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
 
 
@@ -115,7 +104,7 @@ enum OFD_Cell {
 
 
 // Defined to allow for the OFD_regular_mesh
-struct OPEN4D_API OFD_RegularMesh {
+struct OFD_RegularMesh {
    int values[3];
 };
 
@@ -143,26 +132,26 @@ struct OPEN4D_API OFD_RegularMesh {
  * - SIX_HUNDRED_CELL: 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
  * It is the dual-polytope of the 120-Cell.
 */
-extern struct OPEN4D_API OFD_RegularMesh OFD_regular_mesh[6];
+extern struct OFD_RegularMesh OFD_regular_mesh[6];
 
 
 /** The 5-Cell, also known as the 4-simplex, is the simplest structure defined in 
  * 4D space. It contains 5 cells.  */
-extern OPEN4D_API OFD_Mesh OFD_five_cell();
+extern OFD_Mesh OFD_five_cell();
 /** The 8-Cell, also known as the Tesseract, is the 4D equivalent of a cube. */
-extern OPEN4D_API OFD_Mesh OFD_eight_cell();
+extern OFD_Mesh OFD_eight_cell();
 /** The 16-Cell, also known as the hexadecachoron, is the simplest structure in 
  * 4D space that has no 3D or 2D equivalent. */
-extern OPEN4D_API OFD_Mesh OFD_sixteen_cell();
+extern OFD_Mesh OFD_sixteen_cell();
 /** The 24-Cell, also known as the hyper-diamond, contains 24 octohedral cells. */
-extern OPEN4D_API OFD_Mesh OFD_twenty_four_cell();
+extern OFD_Mesh OFD_twenty_four_cell();
 /** The 120-Cell, also known as the hyper-dodecahedron, contains 
  * 120 dodecahedral cells. It's the 4D equivalent of the dodecahedron, 
  * similar to how the regular dodecahedron is the 3D equivalent of the pentagon. */
-extern OPEN4D_API OFD_Mesh OFD_one_twenty_cell();
+extern OFD_Mesh OFD_one_twenty_cell();
 /** The 600-Cell, also known as the hexicosachoron, contains 600 tetrahedral cells.
  * It is the dual-polytope of the 120-Cell. */
-extern OPEN4D_API OFD_Mesh OFD_six_hundred_cell();
+extern OFD_Mesh OFD_six_hundred_cell();
 
 
 #endif // OFD_geometry_h_

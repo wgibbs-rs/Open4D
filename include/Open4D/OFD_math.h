@@ -24,18 +24,6 @@
 
 
 
-
-#ifdef _WIN32
-    #ifdef OPEN4D_EXPORTS
-        #define OPEN4D_API __declspec(dllexport)
-    #else
-        #define OPEN4D_API __declspec(dllimport)
-    #endif
-#else
-    #define OPEN4D_API __attribute__((visibility("default")))
-#endif
-
-
 // Use const attribute for Clang and GCC optimization.
 #if defined(__GNUC__) || defined(__clang__)
 #define ATTRIBUTE_CONST __attribute__((const))
@@ -62,12 +50,12 @@ typedef struct { double x, y, z, w; } OFD_Vector4;
 typedef struct { double xy, xz, xw, yz, yw, zw; } OFD_Vector6;
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector2_Magnitude(const OFD_Vector2 a) {
+ATTRIBUTE_CONST inline static double OFD_Vector2_Magnitude(const OFD_Vector2 a) {
     return sqrt(a.x * a.x + a.y * a.y);
 }
 
 /** @brief Adds two 2D vectors together.*/
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector2 OFD_Vector2_Add(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST inline static OFD_Vector2 OFD_Vector2_Add(const OFD_Vector2 a, const OFD_Vector2 b) {
     return (OFD_Vector2){ 
         a.x + b.x,
         a.y + b.y
@@ -75,7 +63,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector2 OFD_Vector2_Add(const OFD_V
 }
 
 /** @brief Subtracts vector "b" from vector "a" */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector2 OFD_Vector2_Subtract(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST inline static OFD_Vector2 OFD_Vector2_Subtract(const OFD_Vector2 a, const OFD_Vector2 b) {
     return (OFD_Vector2){
         a.x - b.x,
         a.y - b.y
@@ -83,12 +71,12 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector2 OFD_Vector2_Subtract(const 
 }
 
 /** @brief Calculates the dot product of two 2D vectors. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector2_Dot(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST inline static double OFD_Vector2_Dot(const OFD_Vector2 a, const OFD_Vector2 b) {
     return a.x * b.x + a.y * b.y;
 }
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector3_Magnitude(const OFD_Vector3 a) {
+ATTRIBUTE_CONST inline static double OFD_Vector3_Magnitude(const OFD_Vector3 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 
@@ -99,7 +87,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector3_Magnitude(const OFD_
  *  It also represents the area of the parallelogram formed by vectors "a" and "b"
  * 
  */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector3 OFD_Cross(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Cross(const OFD_Vector3 a, const OFD_Vector3 b) {
     return (OFD_Vector3){
         a.y * b.z - a.z * b.y,
         a.z * b.x - a.x * b.z,
@@ -108,7 +96,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector3 OFD_Cross(const OFD_Vector3
 }
 
 /** @brief Adds two 3D vectors together. */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector3 OFD_Vector3_Add(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Vector3_Add(const OFD_Vector3 a, const OFD_Vector3 b) {
     return (OFD_Vector3){
         a.x + b.x,
         a.y + b.y,
@@ -117,7 +105,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector3 OFD_Vector3_Add(const OFD_V
 }
 
 /** @brief Subtracts vector "b" from vector "a" */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector3 OFD_Vector3_Subtract(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Vector3_Subtract(const OFD_Vector3 a, const OFD_Vector3 b) {
     return (OFD_Vector3){
         a.x - b.x,
         a.y - b.y,
@@ -126,12 +114,12 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector3 OFD_Vector3_Subtract(const 
 }
 
 /** @brief Calculates the dot product of two 3D vectors. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector3_Dot(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST inline static double OFD_Vector3_Dot(const OFD_Vector3 a, const OFD_Vector3 b) {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector4_Magnitude(const OFD_Vector4 a) {
+ATTRIBUTE_CONST inline static double OFD_Vector4_Magnitude(const OFD_Vector4 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 }
 
@@ -142,7 +130,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector4_Magnitude(const OFD_
  * can find the area of a parallelogram formed by vectors "a" and "b" in 4D space.
  * 
  */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector6 OFD_Exterior(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST inline static OFD_Vector6 OFD_Exterior(const OFD_Vector4 a, const OFD_Vector4 b) {
     return (OFD_Vector6){
         a.x * b.y - a.y * b.x,
         a.x * b.z - a.z * b.x,
@@ -154,7 +142,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector6 OFD_Exterior(const OFD_Vect
 }
 
 /** @brief Adds two 4D vectors together. */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector4 OFD_Vector4_Add(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Add(const OFD_Vector4 a, const OFD_Vector4 b) {
     return (OFD_Vector4){
         a.x + b.x,
         a.y + b.y,
@@ -164,7 +152,7 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector4 OFD_Vector4_Add(const OFD_V
 }
 
 /** @brief Subtracts vector "b" from vector "a" */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector4 OFD_Vector4_Subtract(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Subtract(const OFD_Vector4 a, const OFD_Vector4 b) {
     return (OFD_Vector4){
         a.x - b.x,
         a.y - b.y,
@@ -174,13 +162,13 @@ ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector4 OFD_Vector4_Subtract(const 
 }
 
 /** @brief Calculates the dot product of two 4D vectors. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector4_Dot(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST inline static double OFD_Vector4_Dot(const OFD_Vector4 a, const OFD_Vector4 b) {
     return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static OPEN4D_API double OFD_Vector6_Magnitude(const OFD_Vector6 a) {
+ATTRIBUTE_CONST inline static double OFD_Vector6_Magnitude(const OFD_Vector6 a) {
     return sqrt(a.xy * a.xy + a.xz * a.xz + a.xw * a.xw + a.yz * a.yz + a.yw * a.yw + a.zw * a.zw);
 }
 
@@ -193,7 +181,7 @@ static inline double toRadians(const double a) {
 }
 
 /** @brief Rotates a 4D vector around a central point. */
-ATTRIBUTE_CONST inline static OPEN4D_API OFD_Vector4 OFD_Vector4_Rotate(const OFD_Vector4 a, const OFD_Vector4 c, const OFD_Vector6 r) {
+ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Rotate(const OFD_Vector4 a, const OFD_Vector4 c, const OFD_Vector6 r) {
     double sXY = sin(toRadians(r.xy)); double sXZ = sin(toRadians(r.xz)); double sXW = sin(toRadians(r.xw)); double sYZ = sin(toRadians(r.yz)); double sYW = sin(toRadians(r.yw)); double sZW = sin(toRadians(r.zw));
     double cXY = cos(toRadians(r.xy)); double cXZ = cos(toRadians(r.xz)); double cXW = cos(toRadians(r.xw)); double cYZ = cos(toRadians(r.yz)); double cYW = cos(toRadians(r.yw)); double cZW = cos(toRadians(r.zw));
 
