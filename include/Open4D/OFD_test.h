@@ -43,7 +43,7 @@ static int OFD_Assert(const int assertion, const char* test_name, ...) {
 
 // Returns true if a and b are *nearly* equal to each other, accounting for truncation.
 #if defined(__GNUC__) || defined(__clang__)
-__attribute__((pure, always_inline))
+__attribute__((pure))
 #endif
 static inline int neareq(double a, double b) {
     return fabs(a - b) < 1e-9;

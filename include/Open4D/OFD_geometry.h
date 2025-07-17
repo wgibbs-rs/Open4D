@@ -83,13 +83,10 @@ extern OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
  */
 extern OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
 
-
-
 #ifdef TESTING
 extern OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
 extern int sgn(double x);
 #endif
-
 
 
 // Define enum for the cells

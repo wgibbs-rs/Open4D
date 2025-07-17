@@ -106,17 +106,38 @@ extern const OFD_WorldParameters OFD_DEFAULT_WORLD;
 
 
 
+/** @brief Moves a single OFD_Rigidbody to a new location, adjusting it's mesh and transform. */
+extern inline void OFD_SetRigidbodyPosition(OFD_Rigidbody* obj, OFD_Vector4 target);
+
+/** @brief Rotates a single OFD_Rigidbody to a target orientation, adjusting mesh and transform. */
+extern inline void OFD_SetRigidbodyRotation(OFD_Rigidbody* obj, OFD_Vector6 deg);
+
+/** @brief Applies the velocity of a rigidbody to its position based on change in time. */
+extern inline void OFD_ApplyRigidbodyTranslationalVelocity(OFD_Rigidbody* obj, const double dt);
+
+/** @brief Applies the angular velocity of a rigidbody to its orientation based on change in time. */
+extern inline void OFD_ApplyRigidbodyRotationalVelocity(OFD_Rigidbody* obj, const double dt);
+
 
 /** @brief Animates a rigidbody by a time interval (dt). */
-extern void OFD_AnimateRigidbody(OFD_Rigidbody* a, OFD_Mesh* env, const int envLength, const OFD_WorldParameters world, const double dt);
+extern inline void OFD_AnimateRigidbody(
+   OFD_Rigidbody* restrict a, 
+   OFD_Rigidbody* restrict env, 
+   const int envSize, 
+   const OFD_WorldParameters world, 
+   const double dt
+);
+
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-extern double OFD_UniformInertiaTensor(const OFD_Mesh mesh);
+extern inline double OFD_UniformInertiaTensor(const OFD_Mesh mesh);
 
 /** @brief Calculates and updates the velocities of a given object based on a collision impulse. */
-extern void OFD_ApplyRigidbodyImpulse(OFD_Rigidbody* a, const OFD_Vector4* collisionsPoints, const int collisionPointsLength);
-
-
+extern inline void OFD_ApplyRigidbodyImpulse(
+   OFD_Rigidbody* a, 
+   const OFD_Vector4* collisionsPoints, 
+   const int collisionPointsLength
+);
 
 
 #endif // OFD_physics_h_

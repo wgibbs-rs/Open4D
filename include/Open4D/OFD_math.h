@@ -173,10 +173,7 @@ ATTRIBUTE_CONST inline static double OFD_Vector6_Magnitude(const OFD_Vector6 a) 
 }
 
 
-#if defined(__GNUC__) || defined(__clang__)
-__attribute__((const))
-#endif
-static inline double toRadians(const double a) {
+ATTRIBUTE_CONST static inline double toRadians(const double a) {
     return a * 0.0174532925199; // a * π / 180
 }
 
