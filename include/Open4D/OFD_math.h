@@ -28,13 +28,12 @@
 #if defined(__GNUC__) || defined(__clang__)
 #define ATTRIBUTE_CONST __attribute__((const))
 #else
-#define ATTRIBUTE_CONST
+#define ATTRIBUTE_CONST 
 #endif
 
 
 #include <math.h>
 #include <stdlib.h>
-
 
 
 /** @brief Represents a 2D vector. */
@@ -49,13 +48,14 @@ typedef struct { double x, y, z, w; } OFD_Vector4;
 /** @brief Represents a 6D vector. */
 typedef struct { double xy, xz, xw, yz, yw, zw; } OFD_Vector6;
 
+
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static double OFD_Vector2_Magnitude(const OFD_Vector2 a) {
+ATTRIBUTE_CONST static inline double OFD_Vector2_Magnitude(const OFD_Vector2 a) {
     return sqrt(a.x * a.x + a.y * a.y);
 }
 
 /** @brief Adds two 2D vectors together.*/
-ATTRIBUTE_CONST inline static OFD_Vector2 OFD_Vector2_Add(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST static inline OFD_Vector2 OFD_Vector2_Add(const OFD_Vector2 a, const OFD_Vector2 b) {
     return (OFD_Vector2){ 
         a.x + b.x,
         a.y + b.y
@@ -63,7 +63,7 @@ ATTRIBUTE_CONST inline static OFD_Vector2 OFD_Vector2_Add(const OFD_Vector2 a, c
 }
 
 /** @brief Subtracts vector "b" from vector "a" */
-ATTRIBUTE_CONST inline static OFD_Vector2 OFD_Vector2_Subtract(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST static inline OFD_Vector2 OFD_Vector2_Subtract(const OFD_Vector2 a, const OFD_Vector2 b) {
     return (OFD_Vector2){
         a.x - b.x,
         a.y - b.y
@@ -71,12 +71,12 @@ ATTRIBUTE_CONST inline static OFD_Vector2 OFD_Vector2_Subtract(const OFD_Vector2
 }
 
 /** @brief Calculates the dot product of two 2D vectors. */
-ATTRIBUTE_CONST inline static double OFD_Vector2_Dot(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST static inline double OFD_Vector2_Dot(const OFD_Vector2 a, const OFD_Vector2 b) {
     return a.x * b.x + a.y * b.y;
 }
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static double OFD_Vector3_Magnitude(const OFD_Vector3 a) {
+ATTRIBUTE_CONST static inline double OFD_Vector3_Magnitude(const OFD_Vector3 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 
@@ -87,7 +87,7 @@ ATTRIBUTE_CONST inline static double OFD_Vector3_Magnitude(const OFD_Vector3 a) 
  *  It also represents the area of the parallelogram formed by vectors "a" and "b"
  * 
  */
-ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Cross(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST static inline OFD_Vector3 OFD_Cross(const OFD_Vector3 a, const OFD_Vector3 b) {
     return (OFD_Vector3){
         a.y * b.z - a.z * b.y,
         a.z * b.x - a.x * b.z,
@@ -96,7 +96,7 @@ ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Cross(const OFD_Vector3 a, const O
 }
 
 /** @brief Adds two 3D vectors together. */
-ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Vector3_Add(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST static inline OFD_Vector3 OFD_Vector3_Add(const OFD_Vector3 a, const OFD_Vector3 b) {
     return (OFD_Vector3){
         a.x + b.x,
         a.y + b.y,
@@ -105,7 +105,7 @@ ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Vector3_Add(const OFD_Vector3 a, c
 }
 
 /** @brief Subtracts vector "b" from vector "a" */
-ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Vector3_Subtract(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST static inline OFD_Vector3 OFD_Vector3_Subtract(const OFD_Vector3 a, const OFD_Vector3 b) {
     return (OFD_Vector3){
         a.x - b.x,
         a.y - b.y,
@@ -114,12 +114,12 @@ ATTRIBUTE_CONST inline static OFD_Vector3 OFD_Vector3_Subtract(const OFD_Vector3
 }
 
 /** @brief Calculates the dot product of two 3D vectors. */
-ATTRIBUTE_CONST inline static double OFD_Vector3_Dot(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST static inline double OFD_Vector3_Dot(const OFD_Vector3 a, const OFD_Vector3 b) {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static double OFD_Vector4_Magnitude(const OFD_Vector4 a) {
+ATTRIBUTE_CONST static inline double OFD_Vector4_Magnitude(const OFD_Vector4 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 }
 
@@ -130,7 +130,7 @@ ATTRIBUTE_CONST inline static double OFD_Vector4_Magnitude(const OFD_Vector4 a) 
  * can find the area of a parallelogram formed by vectors "a" and "b" in 4D space.
  * 
  */
-ATTRIBUTE_CONST inline static OFD_Vector6 OFD_Exterior(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST static inline OFD_Vector6 OFD_Exterior(const OFD_Vector4 a, const OFD_Vector4 b) {
     return (OFD_Vector6){
         a.x * b.y - a.y * b.x,
         a.x * b.z - a.z * b.x,
@@ -142,7 +142,7 @@ ATTRIBUTE_CONST inline static OFD_Vector6 OFD_Exterior(const OFD_Vector4 a, cons
 }
 
 /** @brief Adds two 4D vectors together. */
-ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Add(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST static inline OFD_Vector4 OFD_Vector4_Add(const OFD_Vector4 a, const OFD_Vector4 b) {
     return (OFD_Vector4){
         a.x + b.x,
         a.y + b.y,
@@ -152,7 +152,7 @@ ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Add(const OFD_Vector4 a, c
 }
 
 /** @brief Subtracts vector "b" from vector "a" */
-ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Subtract(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST static inline OFD_Vector4 OFD_Vector4_Subtract(const OFD_Vector4 a, const OFD_Vector4 b) {
     return (OFD_Vector4){
         a.x - b.x,
         a.y - b.y,
@@ -162,26 +162,50 @@ ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Subtract(const OFD_Vector4
 }
 
 /** @brief Calculates the dot product of two 4D vectors. */
-ATTRIBUTE_CONST inline static double OFD_Vector4_Dot(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST static inline double OFD_Vector4_Dot(const OFD_Vector4 a, const OFD_Vector4 b) {
     return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST inline static double OFD_Vector6_Magnitude(const OFD_Vector6 a) {
+ATTRIBUTE_CONST static inline double OFD_Vector6_Magnitude(const OFD_Vector6 a) {
     return sqrt(a.xy * a.xy + a.xz * a.xz + a.xw * a.xw + a.yz * a.yz + a.yw * a.yw + a.zw * a.zw);
 }
 
+/** @brief Adds two 6D vectors together. */
+ATTRIBUTE_CONST static inline OFD_Vector6 OFD_Vector6_Add(const OFD_Vector6 a, const OFD_Vector6 b) {
+    return (OFD_Vector6) {
+        a.xy + b.xy,
+        a.xz + b.xz,
+        a.xw + b.xw,
+        a.yz + b.yz,
+        a.yw + b.yw,
+        a.zw + b.zw
+    };
+}
 
-ATTRIBUTE_CONST static inline double toRadians(const double a) {
-    return a * 0.0174532925199; // a * π / 180
+/** @brief Subtracts vector "b" from vector "a" */
+ATTRIBUTE_CONST static inline OFD_Vector6 OFD_Vector6_Subtract(const OFD_Vector6 a, const OFD_Vector6 b) {
+    return (OFD_Vector6) {
+        a.xy - b.xy,
+        a.xz - b.xz,
+        a.xw - b.xw,
+        a.yz - b.yz,
+        a.yw - b.yw,
+        a.zw - b.zw
+    };
+}
+
+
+/** Converts 'a' from degree to radian. This is done by multiplying 'a' by π/180 */
+ATTRIBUTE_CONST static inline double OFD_interal_toRadians(const double a) {
+    return a * 0.0174532925199;
 }
 
 /** @brief Rotates a 4D vector around a central point. */
-ATTRIBUTE_CONST inline static OFD_Vector4 OFD_Vector4_Rotate(const OFD_Vector4 a, const OFD_Vector4 c, const OFD_Vector6 r) {
-    double sXY = sin(toRadians(r.xy)); double sXZ = sin(toRadians(r.xz)); double sXW = sin(toRadians(r.xw)); double sYZ = sin(toRadians(r.yz)); double sYW = sin(toRadians(r.yw)); double sZW = sin(toRadians(r.zw));
-    double cXY = cos(toRadians(r.xy)); double cXZ = cos(toRadians(r.xz)); double cXW = cos(toRadians(r.xw)); double cYZ = cos(toRadians(r.yz)); double cYW = cos(toRadians(r.yw)); double cZW = cos(toRadians(r.zw));
-
+ATTRIBUTE_CONST static OFD_Vector4 OFD_Vector4_Rotate(const OFD_Vector4 a, const OFD_Vector4 c, const OFD_Vector6 r) {
+    double sXY = sin(OFD_interal_toRadians(r.xy)); double sXZ = sin(OFD_interal_toRadians(r.xz)); double sXW = sin(OFD_interal_toRadians(r.xw)); double sYZ = sin(OFD_interal_toRadians(r.yz)); double sYW = sin(OFD_interal_toRadians(r.yw)); double sZW = sin(OFD_interal_toRadians(r.zw));
+    double cXY = cos(OFD_interal_toRadians(r.xy)); double cXZ = cos(OFD_interal_toRadians(r.xz)); double cXW = cos(OFD_interal_toRadians(r.xw)); double cYZ = cos(OFD_interal_toRadians(r.yz)); double cYW = cos(OFD_interal_toRadians(r.yw)); double cZW = cos(OFD_interal_toRadians(r.zw));
     return (OFD_Vector4){
         cYZ * cYW * cZW * (a.x - c.x) + (cXZ * (-cXW * sZW - sXW * sYW * cZW) - sXZ * sYZ * cYW * cZW) * (a.y - c.y) + (cXY * (sXW * sZW - cXW * sYW * cZW) + sXY * (sXZ * (cXW * sZW + sXW * sYW * cZW) - cXZ * sYZ * cYW * cZW)) * (a.z- c.z) + (-sXY * (sXW * sZW - cXW * sYW * cZW) + cXY * (sXZ * (cXW * sZW + sXW * sYW * cZW) - cXZ * sYZ * cYW * cZW)) * (a.w - c.w) + c.x, 
         cYZ * cYW * sZW * (a.x - c.x) + (cXZ * (cXW * cZW - sXW * sYW * sZW) - sXZ * sYZ * cYW * sZW) * (a.y - c.y) + (cXY * (-sXW * cZW - cXW * sYW * sZW) + sXY * (-sXZ * (cXW * cZW - sXW * sYW * sZW) - cXZ * sYZ * cYW * sZW)) * (a.z- c.z) + (-sXY * (-sXW * cZW - cXW * sYW * sZW) + cXY * (-sXZ * (cXW * cZW - sXW * sYW * sZW) - cXZ * sYZ * cYW * sZW)) * (a.w - c.w) + c.y,
