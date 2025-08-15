@@ -31,11 +31,11 @@
 #endif
 
 // If testing, this is not static, and is defined in OFD_geometry, otherwise it is internal.
-TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
-TEST_STATIC int sgn(double x);
+TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, float w);
+TEST_STATIC int sgn(float x);
 
 
-OFD_TriangleArray OFD_SliceTetrahedron(const OFD_Tetrahedron t, const double w) {
+OFD_TriangleArray OFD_SliceTetrahedron(const OFD_Tetrahedron t, const float w) {
 
    OFD_TriangleArray out;
 
@@ -99,9 +99,9 @@ OFD_TriangleArray OFD_SliceTetrahedron(const OFD_Tetrahedron t, const double w) 
 #if defined(__GNUC__) || defined(__clang__)
 __attribute__((const))
 #endif
-TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
+TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, float w) {
    if (a.w == b.w) return (OFD_Vector3){0, 0, 0};
-   double percent = (w - a.w) / (b.w - a.w);
+   float percent = (w - a.w) / (b.w - a.w);
    return (OFD_Vector3){
       percent * (b.x - a.x) + a.x,
       percent * (b.y - a.y) + a.y,
@@ -112,4 +112,4 @@ TEST_STATIC OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w) {
 #if defined(__GNUC__) || defined(__clang__)
 __attribute__((const))
 #endif
-inline TEST_STATIC int sgn(double x) { return (x > 0) - (x < 0); }
+inline TEST_STATIC int sgn(float x) { return (x > 0) - (x < 0); }

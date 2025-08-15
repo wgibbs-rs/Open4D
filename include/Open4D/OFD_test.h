@@ -46,5 +46,5 @@ static int OFD_Assert(const int assertion, const char* test_name, ...) {
 __attribute__((pure))
 #endif
 static inline int neareq(double a, double b) {
-    return fabs(a - b) < 1e-9;
+    return fabs(a - b) < 1e-6;
 }

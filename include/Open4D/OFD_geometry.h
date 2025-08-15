@@ -70,7 +70,7 @@ typedef struct {
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
+extern OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, float w);
 
 
 /** @brief Slices a 4D tetrahedron, returning a 3D face.
@@ -81,11 +81,11 @@ extern OFD_TriangleArray OFD_SliceMesh(OFD_Mesh mesh, double w);
  * 
  * @return Either one or two triangles. Will always be treated as an array.
  */
-extern OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, double w);
+extern OFD_TriangleArray OFD_SliceTetrahedron(OFD_Tetrahedron a, float w);
 
 #ifdef TESTING
-extern OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, double w);
-extern int sgn(double x);
+extern OFD_Vector3 inter(OFD_Vector4 a, OFD_Vector4 b, float w);
+extern int sgn(float x);
 #endif
 
 

@@ -37,20 +37,20 @@
 
 
 /** @brief Represents a 2D vector. */
-typedef struct { double x, y; } OFD_Vector2;
+typedef struct { float x, y; } OFD_Vector2;
 
 /** @brief Represents a 3D vector. */
-typedef struct { double x, y, z; } OFD_Vector3;
+typedef struct { float x, y, z; } OFD_Vector3;
 
 /** @brief Represents a 4D vector. */
-typedef struct { double x, y, z, w; } OFD_Vector4;
+typedef struct { float x, y, z, w; } OFD_Vector4;
 
 /** @brief Represents a 6D vector. */
-typedef struct { double xy, xz, xw, yz, yw, zw; } OFD_Vector6;
+typedef struct { float xy, xz, xw, yz, yw, zw; } OFD_Vector6;
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST static inline double OFD_Vector2_Magnitude(const OFD_Vector2 a) {
+ATTRIBUTE_CONST static inline float OFD_Vector2_Magnitude(const OFD_Vector2 a) {
     return sqrt(a.x * a.x + a.y * a.y);
 }
 
@@ -71,12 +71,12 @@ ATTRIBUTE_CONST static inline OFD_Vector2 OFD_Vector2_Subtract(const OFD_Vector2
 }
 
 /** @brief Calculates the dot product of two 2D vectors. */
-ATTRIBUTE_CONST static inline double OFD_Vector2_Dot(const OFD_Vector2 a, const OFD_Vector2 b) {
+ATTRIBUTE_CONST static inline float OFD_Vector2_Dot(const OFD_Vector2 a, const OFD_Vector2 b) {
     return a.x * b.x + a.y * b.y;
 }
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST static inline double OFD_Vector3_Magnitude(const OFD_Vector3 a) {
+ATTRIBUTE_CONST static inline float OFD_Vector3_Magnitude(const OFD_Vector3 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 
@@ -114,12 +114,12 @@ ATTRIBUTE_CONST static inline OFD_Vector3 OFD_Vector3_Subtract(const OFD_Vector3
 }
 
 /** @brief Calculates the dot product of two 3D vectors. */
-ATTRIBUTE_CONST static inline double OFD_Vector3_Dot(const OFD_Vector3 a, const OFD_Vector3 b) {
+ATTRIBUTE_CONST static inline float OFD_Vector3_Dot(const OFD_Vector3 a, const OFD_Vector3 b) {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST static inline double OFD_Vector4_Magnitude(const OFD_Vector4 a) {
+ATTRIBUTE_CONST static inline float OFD_Vector4_Magnitude(const OFD_Vector4 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 }
 
@@ -162,13 +162,13 @@ ATTRIBUTE_CONST static inline OFD_Vector4 OFD_Vector4_Subtract(const OFD_Vector4
 }
 
 /** @brief Calculates the dot product of two 4D vectors. */
-ATTRIBUTE_CONST static inline double OFD_Vector4_Dot(const OFD_Vector4 a, const OFD_Vector4 b) {
+ATTRIBUTE_CONST static inline float OFD_Vector4_Dot(const OFD_Vector4 a, const OFD_Vector4 b) {
     return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 
 /** @brief Calculates the magnitude of the provided vector. */
-ATTRIBUTE_CONST static inline double OFD_Vector6_Magnitude(const OFD_Vector6 a) {
+ATTRIBUTE_CONST static inline float OFD_Vector6_Magnitude(const OFD_Vector6 a) {
     return sqrt(a.xy * a.xy + a.xz * a.xz + a.xw * a.xw + a.yz * a.yz + a.yw * a.yw + a.zw * a.zw);
 }
 
@@ -198,14 +198,14 @@ ATTRIBUTE_CONST static inline OFD_Vector6 OFD_Vector6_Subtract(const OFD_Vector6
 
 
 /** Converts 'a' from degree to radian. This is done by multiplying 'a' by π/180 */
-ATTRIBUTE_CONST static inline double OFD_interal_toRadians(const double a) {
+ATTRIBUTE_CONST static inline float OFD_interal_toRadians(const float a) {
     return a * 0.0174532925199;
 }
 
 /** @brief Rotates a 4D vector around a central point. */
 ATTRIBUTE_CONST static OFD_Vector4 OFD_Vector4_Rotate(const OFD_Vector4 a, const OFD_Vector4 c, const OFD_Vector6 r) {
-    double sXY = sin(OFD_interal_toRadians(r.xy)); double sXZ = sin(OFD_interal_toRadians(r.xz)); double sXW = sin(OFD_interal_toRadians(r.xw)); double sYZ = sin(OFD_interal_toRadians(r.yz)); double sYW = sin(OFD_interal_toRadians(r.yw)); double sZW = sin(OFD_interal_toRadians(r.zw));
-    double cXY = cos(OFD_interal_toRadians(r.xy)); double cXZ = cos(OFD_interal_toRadians(r.xz)); double cXW = cos(OFD_interal_toRadians(r.xw)); double cYZ = cos(OFD_interal_toRadians(r.yz)); double cYW = cos(OFD_interal_toRadians(r.yw)); double cZW = cos(OFD_interal_toRadians(r.zw));
+    float sXY = sin(OFD_interal_toRadians(r.xy)); float sXZ = sin(OFD_interal_toRadians(r.xz)); float sXW = sin(OFD_interal_toRadians(r.xw)); float sYZ = sin(OFD_interal_toRadians(r.yz)); float sYW = sin(OFD_interal_toRadians(r.yw)); float sZW = sin(OFD_interal_toRadians(r.zw));
+    float cXY = cos(OFD_interal_toRadians(r.xy)); float cXZ = cos(OFD_interal_toRadians(r.xz)); float cXW = cos(OFD_interal_toRadians(r.xw)); float cYZ = cos(OFD_interal_toRadians(r.yz)); float cYW = cos(OFD_interal_toRadians(r.yw)); float cZW = cos(OFD_interal_toRadians(r.zw));
     return (OFD_Vector4){
         cYZ * cYW * cZW * (a.x - c.x) + (cXZ * (-cXW * sZW - sXW * sYW * cZW) - sXZ * sYZ * cYW * cZW) * (a.y - c.y) + (cXY * (sXW * sZW - cXW * sYW * cZW) + sXY * (sXZ * (cXW * sZW + sXW * sYW * cZW) - cXZ * sYZ * cYW * cZW)) * (a.z- c.z) + (-sXY * (sXW * sZW - cXW * sYW * cZW) + cXY * (sXZ * (cXW * sZW + sXW * sYW * cZW) - cXZ * sYZ * cYW * cZW)) * (a.w - c.w) + c.x, 
         cYZ * cYW * sZW * (a.x - c.x) + (cXZ * (cXW * cZW - sXW * sYW * sZW) - sXZ * sYZ * cYW * sZW) * (a.y - c.y) + (cXY * (-sXW * cZW - cXW * sYW * sZW) + sXY * (-sXZ * (cXW * cZW - sXW * sYW * sZW) - cXZ * sYZ * cYW * sZW)) * (a.z- c.z) + (-sXY * (-sXW * cZW - cXW * sYW * sZW) + cXY * (-sXZ * (cXW * cZW - sXW * sYW * sZW) - cXZ * sYZ * cYW * sZW)) * (a.w - c.w) + c.y,

@@ -54,29 +54,29 @@ typedef struct {
    OFD_Vector6 angular_velocity;
 
    /** @brief The mass of the object's structure. (kg) */
-   double mass;
+   float mass;
 
    /** @brief The Restitution of this object. (no unit) */
-   double restitution;
+   float restitution;
 
    /** @brief The resistance of an object to initiation of motion. (no unit)
     * 
     * A simulation can contain many objects of varying frictional proportions, therefore each
     * object is assigned a frictional value, which will be used when in contact with another object.
     */
-   double static_friction;
+   float static_friction;
    /** @brief The resistance of an object to sliding motions. (no unit)
     * 
     * A simulation can contain many objects of varying frictional proportions, therefor each
     * object is assigned a friction value, which will be used when in contact with another object.
     */
-   double kinetic_friction;
+   float kinetic_friction;
 
    /** @brief The resistance of an object to rolling motion. (no unit) */
-   double rolling_friction;
+   float rolling_friction;
 
    /** @brief The Moment Of Inertia tensor of the object. (kg • m^2) */
-   double inertia;
+   float inertia;
 
 } OFD_Transform;
 
@@ -94,7 +94,7 @@ typedef struct {
 
 /** @brief Defines parameters for world physics variables, like the constant of gravitational acceleration. */
 typedef struct {
-   double gravity;
+   float gravity;
 } OFD_WorldParameters;
 
 
@@ -113,10 +113,10 @@ extern inline void OFD_SetRigidbodyPosition(OFD_Rigidbody* obj, OFD_Vector4 targ
 extern inline void OFD_SetRigidbodyRotation(OFD_Rigidbody* obj, OFD_Vector6 deg);
 
 /** @brief Applies the velocity of a rigidbody to its position based on change in time. */
-extern inline void OFD_ApplyRigidbodyTranslationalVelocity(OFD_Rigidbody* obj, const double dt);
+extern inline void OFD_ApplyRigidbodyTranslationalVelocity(OFD_Rigidbody* obj, const float dt);
 
 /** @brief Applies the angular velocity of a rigidbody to its orientation based on change in time. */
-extern inline void OFD_ApplyRigidbodyRotationalVelocity(OFD_Rigidbody* obj, const double dt);
+extern inline void OFD_ApplyRigidbodyRotationalVelocity(OFD_Rigidbody* obj, const float dt);
 
 
 /** @brief Animates a rigidbody by a time interval (dt). */
@@ -125,12 +125,12 @@ extern inline void OFD_AnimateRigidbody(
    OFD_Rigidbody* restrict env, 
    const int envSize, 
    const OFD_WorldParameters world, 
-   const double dt
+   const float dt
 );
 
 
 /** @brief Calculates the moment of inertia for a geometry, given that mass is uniformly distributed. */
-extern inline double OFD_UniformInertiaTensor(const OFD_Mesh mesh);
+extern inline float OFD_UniformInertiaTensor(const OFD_Mesh mesh);
 
 /** @brief Calculates and updates the velocities of a given object based on a collision impulse. */
 extern inline void OFD_ApplyRigidbodyImpulse(

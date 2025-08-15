@@ -75,7 +75,7 @@ extern inline void OFD_SetRigidbodyRotation(OFD_Rigidbody* obj, OFD_Vector6 deg)
    }
 }
 
-extern inline void OFD_ApplyRigidbodyTranslationalVelocity(OFD_Rigidbody* obj, const double dt) {
+extern inline void OFD_ApplyRigidbodyTranslationalVelocity(OFD_Rigidbody* obj, const float dt) {
    OFD_SetRigidbodyPosition(
       obj,
       (OFD_Vector4){
@@ -87,7 +87,7 @@ extern inline void OFD_ApplyRigidbodyTranslationalVelocity(OFD_Rigidbody* obj, c
    );
 }
 
-extern inline void OFD_ApplyRigidbodyRotationalVelocity(OFD_Rigidbody* obj, const double dt) {
+extern inline void OFD_ApplyRigidbodyRotationalVelocity(OFD_Rigidbody* obj, const float dt) {
    OFD_SetRigidbodyRotation(
       obj,
       (OFD_Vector6){
@@ -101,7 +101,7 @@ extern inline void OFD_ApplyRigidbodyRotationalVelocity(OFD_Rigidbody* obj, cons
    );
 }
 
-extern inline void OFD_AnimateRigidbody(OFD_Rigidbody* restrict a, OFD_Rigidbody* restrict env, const int envSize, const OFD_WorldParameters world, const double dt) {
+extern inline void OFD_AnimateRigidbody(OFD_Rigidbody* restrict a, OFD_Rigidbody* restrict env, const int envSize, const OFD_WorldParameters world, const float dt) {
    printf("Error: " RED "error: " RESET "Physics has not been implemented in this version.");
 }
 
