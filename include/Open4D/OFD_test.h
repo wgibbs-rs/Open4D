@@ -45,6 +45,6 @@ static int OFD_Assert(const int assertion, const char* test_name, ...) {
 #if defined(__GNUC__) || defined(__clang__)
 __attribute__((pure))
 #endif
-static inline int neareq(double a, double b) {
+static inline int neareq(float a, float b) {
     return fabs(a - b) < 1e-6;
 }
