@@ -18,3 +18,13 @@
       misrepresented as being the original software.
    3. This notice may not be removed or altered from any source distribution.
 */
+
+// Detect collision between two meshes
+__kernel void detect_pair_collision() {
+
+}
+
+// Detect collisions between many meshes
+__kernel void detect_group_collisions() {
+   
+}

@@ -18,3 +18,24 @@
       misrepresented as being the original software.
    3. This notice may not be removed or altered from any source distribution.
 */
+
+// Update the orientation of a single rigidbody by it's velocity.
+// Uses the GPU to effect each tetrahedron's orientation
+__kernel void update_rigidbody() {
+
+}
+
+// Update the orientation of many rigidbodies
+__kernel void update_rigidbody_group() {
+
+}
+
+// Apply collision-based impulses to an individual rigidbody
+__kernel void apply_rigidbody_impulses() {
+
+}
+
+// Apply collision-based impulses to a group of rigidbodies
+__kernel void apply_rigidbody_impulses_group() {
+
+}
