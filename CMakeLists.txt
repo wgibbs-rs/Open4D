@@ -9,9 +9,10 @@ set(CMAKE_C_STANDARD 99)
 # Add the library 
 add_library(Open4D SHARED 
     ${PROJECT_SOURCE_DIR}/src/geometry/mesh.c
-    ${PROJECT_SOURCE_DIR}/src/geometry/primitive.c
+    ${PROJECT_SOURCE_DIR}/src/geometry/primitives.c
     ${PROJECT_SOURCE_DIR}/src/physics/collision.c
     ${PROJECT_SOURCE_DIR}/src/physics/rigidbody.c
+    ${PROJECT_SOURCE_DIR}/src/sys/gpu_optimization.c
 )
 
 set_target_properties(Open4D PROPERTIES
